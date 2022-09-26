@@ -12,6 +12,7 @@ export const beneficiariesOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,24 +22,26 @@ export const beneficiariesOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'List beneficiaries',
+				name: 'List Beneficiaries',
 				value: 'listBeneficiaries',
-				description: '',
+				action: 'List beneficiaries a beneficiaries',
 			},
 			{
-				name: 'Show beneficiary',
+				name: 'Show Beneficiary',
 				value: 'showBeneficiary',
-				description: 'get the list',
+				description: 'Get the list',
+				action: 'Show beneficiary a beneficiaries',
 			},
 			{
-				name: 'Trust a list of beneficiaries',
+				name: 'Trust a List of Beneficiaries',
 				value: 'trustBeneficiaries',
-				description: '',
+				action: 'Trust a list of beneficiaries a beneficiaries',
 			},
 			{
-				name: 'Untrust a list of beneficiaries',
+				name: 'Untrust a List of Beneficiaries',
 				value: 'untrustBeneficiaries',
-				description: 'get the list',
+				description: 'Get the list',
+				action: 'Untrust a list of beneficiaries a beneficiaries',
 			},
 		],
 		default: 'listBeneficiaries',
@@ -84,8 +87,8 @@ export const beneficiariesOperations: INodeProperties[] = [
 		typeOptions: {
 			minValue: 1,
 		},
-		default: 10,
-		description: 'How many results to return.',
+		default: 50,
+		description: 'Max number of results to return',
 	},
 	{
 		displayName: 'Filters',
@@ -110,7 +113,7 @@ export const beneficiariesOperations: INodeProperties[] = [
 			type: 'string',
 			placeholder: '',
 			default: '',
-			description: `Beneficiaries can be filtered by IBAN. The iban query parameter accepts an array of IBANs as value.`,
+			description: 'Beneficiaries can be filtered by IBAN. The iban query parameter accepts an array of IBANs as value.',
 		},
 		{
 			displayName: 'Trusted',
@@ -118,7 +121,7 @@ export const beneficiariesOperations: INodeProperties[] = [
 			type: 'string',
 			placeholder: '',
 			default: '',
-			description: `Boolean property that can filter beneficiaries by true or false.`,
+			description: 'Boolean property that can filter beneficiaries by true or false',
 		},
 		{
 			displayName: 'Status',
@@ -126,23 +129,21 @@ export const beneficiariesOperations: INodeProperties[] = [
 			type: 'string',
 			placeholder: 'settled',
 			default: '',
-			description: `Allowed values: pending, processing, canceled, declined, settled (no combinaison possible yet)`,
+			description: 'Allowed values: pending, processing, canceled, declined, settled (no combinaison possible yet)',
 		},
 		{
-			displayName: 'updated_at_from',
+			displayName: 'Updated_at_from',
 			name: 'updated_at_from',
 			type: 'dateTime',
 			placeholder: '2019-01-10T11:47:53.123Z',
 			default: '',
-			description: ``,
 		},
 		{
-			displayName: 'updated_at_to',
+			displayName: 'Updated_at_to',
 			name: 'updated_at_to',
 			type: 'dateTime',
 			placeholder: '2019-01-10T11:47:53.123Z',
 			default: '',
-			description: ``,
 		},
 	],
 	},
@@ -152,7 +153,7 @@ export const beneficiariesOperations: INodeProperties[] = [
 //      BENEFICIAIRIES - Show beneficiary
 // ------------------------
 	{
-		displayName: 'id',
+		displayName: 'ID',
 		name: 'id',
 		type: 'string',
 		required: true,
@@ -168,13 +169,13 @@ export const beneficiariesOperations: INodeProperties[] = [
 		},
 		placeholder: 'ce91bc4e-68d6-4ab0-bfab-4a9403f7f316',
 		default: '',
-		description: `Get a single beneficiary.`,
+		description: 'Get a single beneficiary',
 	},
 // ------------------------
 //      BENEFICIAIRIES - Trust a list of beneficiaries
 // ------------------------
 	{
-		displayName: 'ids',
+		displayName: 'IDs',
 		name: 'ids',
 		type: 'string',
 		required: true,
@@ -190,14 +191,14 @@ export const beneficiariesOperations: INodeProperties[] = [
 		},
 		placeholder: 'ce91bc4e-68d6-4ab0-bfab-4a9403f7f316',
 		default: '',
-		description: `"abc", "xyz"`,
+		description: '"abc", "xyz"',
 	},
 // ------------------------
 //      BENEFICIAIRIES - Untrust a list of beneficiaries
 // ------------------------
 
 	{
-		displayName: 'ids',
+		displayName: 'IDs',
 		name: 'ids',
 		type: 'string',
 		required: true,
@@ -213,6 +214,6 @@ export const beneficiariesOperations: INodeProperties[] = [
 		},
 		placeholder: 'ce91bc4e-68d6-4ab0-bfab-4a9403f7f316',
 		default: '',
-		description: `"abc", "xyz"`,
+		description: '"abc", "xyz"',
 	},
 ];

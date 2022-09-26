@@ -12,6 +12,7 @@ export const internalTransactionsOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,9 +22,9 @@ export const internalTransactionsOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Create internal transfer',
+				name: 'Create Internal Transfer',
 				value: 'createInternalTransfer',
-				description: '',
+				action: 'Create internal transfer an internal transactions',
 			},
 		],
 		default: 'createInternalTransfer',
@@ -48,10 +49,10 @@ export const internalTransactionsOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `This is a unique string (we advise to use a uuid) that identifies a transfer. This is used by Qonto to prevent "double spending" by accidentaly replaying the same API call.`,
+		description: 'This is a unique string (we advise to use a uuid) that identifies a transfer. This is used by Qonto to prevent "double spending" by accidentaly replaying the same API call.',
 	},
 	{
-		displayName: 'debit_iban',
+		displayName: 'Debit_iban',
 		name: 'debit_iban',
 		type: 'string',
 		required: true,
@@ -66,10 +67,9 @@ export const internalTransactionsOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: ``,
 	},
 	{
-		displayName: 'credit_iban',
+		displayName: 'Credit_iban',
 		name: 'credit_iban',
 		type: 'string',
 		required: true,
@@ -84,7 +84,6 @@ export const internalTransactionsOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: ``,
 	},
 	{
 		displayName: 'Reference',
@@ -102,7 +101,7 @@ export const internalTransactionsOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `Transfer reference that can be used to enter transfer details to further describe the transfer - Maximum 140 characters`,
+		description: 'Transfer reference that can be used to enter transfer details to further describe the transfer - Maximum 140 characters',
 	},
 	{
 		displayName: 'Amount',
@@ -120,7 +119,7 @@ export const internalTransactionsOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `The amount corresponds to the amount of the transaction in the currency of the bank account.`,
+		description: 'The amount corresponds to the amount of the transaction in the currency of the bank account',
 	},
 	{
 		displayName: 'Currency',
@@ -138,6 +137,6 @@ export const internalTransactionsOperations: INodeProperties[] = [
 			},
 		},
 		default: 'EUR',
-		description: `The currency should be EUR.`,
+		description: 'The currency should be EUR',
 	},
 ];

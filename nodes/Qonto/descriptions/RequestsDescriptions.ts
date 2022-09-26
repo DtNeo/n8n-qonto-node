@@ -12,6 +12,7 @@ export const requestsOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,19 +22,19 @@ export const requestsOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'List requests',
+				name: 'List Requests',
 				value: 'listRequests',
-				description: '',
+				action: 'List requests a requests',
 			},
 			{
-				name: 'Approve a request',
+				name: 'Approve a Request',
 				value: 'approveARequest',
-				description: '',
+				action: 'Approve a request a requests',
 			},
 			{
-				name: 'Decline a request',
+				name: 'Decline a Request',
 				value: 'declineARequest',
-				description: '',
+				action: 'Decline a request a requests',
 			},
 		],
 		default: 'listRequests',
@@ -59,8 +60,8 @@ export const requestsOperations: INodeProperties[] = [
 		typeOptions: {
 			minValue: 1,
 		},
-		default: 10,
-		description: 'How many results to return.',
+		default: 50,
+		description: 'Max number of results to return',
 	},
 	{
 		displayName: 'Filters',
@@ -85,52 +86,50 @@ export const requestsOperations: INodeProperties[] = [
 			type: 'string',
 			placeholder: 'settled',
 			default: '',
-			description: `Allowed values: pending, approved, canceled, declined (no combinaison possible yet)`,
+			description: 'Allowed values: pending, approved, canceled, declined (no combinaison possible yet)',
 		},
 		{
-			displayName: 'request_type',
+			displayName: 'Request_type',
 			name: 'request_type',
 			type: 'options',
-			description: `request_type can take 4 different values:`,
+			description: 'Request_type can take 4 different values:',
 			options: [
 				{
-					name: 'flash_card',
+					name: 'Flash_card',
 					value: 'flash_card',
-					description: 'flash_card: a flash card is a non-physical card with a budget and a last day of validity. The card becomes inactive after the budget is totally spent or the last date of validity is past.',
+					description: 'Flash_card: a flash card is a non-physical card with a budget and a last day of validity. The card becomes inactive after the budget is totally spent or the last date of validity is past.',
 				},
 				{
-					name: 'virtual_card',
+					name: 'Virtual_card',
 					value: 'virtual_card',
-					description: 'virtual_card: a virtual card is a non-physical card with a monthly budget. Card holder can spend that amount every calendar month. Above that, transactions will be refused.',
+					description: 'Virtual_card: a virtual card is a non-physical card with a monthly budget. Card holder can spend that amount every calendar month. Above that, transactions will be refused.',
 				},
 				{
-					name: 'transfer',
+					name: 'Transfer',
 					value: 'transfer',
-					description: 'transfer: a transfer of money from one Qonto account to another account.',
+					description: 'Transfer: a transfer of money from one Qonto account to another account',
 				},
 				{
-					name: 'multi_transfer',
+					name: 'Multi_transfer',
 					value: 'multi_transfer',
-					description: 'multi_transfer: several transfers executed at the same time. A document can be provided to create a multi-transfer which is composed of many different transfers.',
+					description: 'Multi_transfer: several transfers executed at the same time. A document can be provided to create a multi-transfer which is composed of many different transfers.',
 				},
 			],
-			default: '',
+			default: 'flash_card',
 		},
 		{
-			displayName: 'processed_at_from',
+			displayName: 'Processed_at_from',
 			name: 'processed_at_from',
 			type: 'dateTime',
 			placeholder: '2019-01-10T11:47:53.123Z',
 			default: '',
-			description: ``,
 		},
 		{
-			displayName: 'created_at_from',
+			displayName: 'Created_at_from',
 			name: 'created_at_from',
 			type: 'dateTime',
 			placeholder: '2019-01-10T11:47:53.123Z',
 			default: '',
-			description: ``,
 		},
 	],
 	},
@@ -138,7 +137,7 @@ export const requestsOperations: INodeProperties[] = [
 //      REQUESTS - Approve a request
 // ------------------------
 	{
-		displayName: 'id',
+		displayName: 'ID',
 		name: 'id',
 		type: 'string',
 		required: true,
@@ -154,10 +153,10 @@ export const requestsOperations: INodeProperties[] = [
 		},
 		placeholder: 'UUID of the request to be processed.',
 		default: '',
-		description: `This endpoint allows you to approve a pending request.`,
+		description: 'This endpoint allows you to approve a pending request',
 	},
 	{
-		displayName: 'request_type',
+		displayName: 'Request_type',
 		name: 'request_type',
 		type: 'options',
 		required: true,
@@ -173,24 +172,24 @@ export const requestsOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'flash_cards',
+				name: 'Flash_cards',
 				value: 'flash_cards',
-				description: 'a flash card is a non-physical card with a budget and a last day of validity. The card becomes inactive after the budget is totally spent or the last date of validity is past.',
+				description: 'A flash card is a non-physical card with a budget and a last day of validity. The card becomes inactive after the budget is totally spent or the last date of validity is past.',
 			},
 			{
-				name: 'virtual_cards',
+				name: 'Virtual_cards',
 				value: 'virtual_cards',
-				description: 'a virtual card is a non-physical card with a monthly budget. Card holder can spend that amount every calendar month. Above that, transactions will be refused.',
+				description: 'A virtual card is a non-physical card with a monthly budget. Card holder can spend that amount every calendar month. Above that, transactions will be refused.',
 			},
 			{
-				name: 'transfers',
+				name: 'Transfers',
 				value: 'transfers',
-				description: 'a transfer of money from one Qonto account to another account.',
+				description: 'A transfer of money from one Qonto account to another account',
 			},
 			{
-				name: 'multi_transfers',
+				name: 'Multi_transfers',
 				value: 'multi_transfers',
-				description: 'several transfers executed at the same time. A document can be provided to create a multi-transfer which is composed of many different transfers.',
+				description: 'Several transfers executed at the same time. A document can be provided to create a multi-transfer which is composed of many different transfers.',
 			},
 		],
 		default: 'transfers',
@@ -211,14 +210,14 @@ export const requestsOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `IBAN of account to debit`,
+		description: 'IBAN of account to debit',
 	},
 
 // ------------------------
 //      REQUESTS - Decline a request
 // ------------------------
 	{
-		displayName: 'id',
+		displayName: 'ID',
 		name: 'id',
 		type: 'string',
 		required: true,
@@ -234,10 +233,10 @@ export const requestsOperations: INodeProperties[] = [
 		},
 		placeholder: 'UUID of the request to be processed.',
 		default: '',
-		description: `This endpoint allows you to approve a pending request.`,
+		description: 'This endpoint allows you to approve a pending request',
 	},
 	{
-		displayName: 'request_type',
+		displayName: 'Request_type',
 		name: 'request_type',
 		type: 'options',
 		required: true,
@@ -253,24 +252,24 @@ export const requestsOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'flash_cards',
+				name: 'Flash_cards',
 				value: 'flash_cards',
-				description: 'a flash card is a non-physical card with a budget and a last day of validity. The card becomes inactive after the budget is totally spent or the last date of validity is past.',
+				description: 'A flash card is a non-physical card with a budget and a last day of validity. The card becomes inactive after the budget is totally spent or the last date of validity is past.',
 			},
 			{
-				name: 'virtual_cards',
+				name: 'Virtual_cards',
 				value: 'virtual_cards',
-				description: 'a virtual card is a non-physical card with a monthly budget. Card holder can spend that amount every calendar month. Above that, transactions will be refused.',
+				description: 'A virtual card is a non-physical card with a monthly budget. Card holder can spend that amount every calendar month. Above that, transactions will be refused.',
 			},
 			{
-				name: 'transfers',
+				name: 'Transfers',
 				value: 'transfers',
-				description: 'a transfer of money from one Qonto account to another account.',
+				description: 'A transfer of money from one Qonto account to another account',
 			},
 			{
-				name: 'multi_transfers',
+				name: 'Multi_transfers',
 				value: 'multi_transfers',
-				description: 'several transfers executed at the same time. A document can be provided to create a multi-transfer which is composed of many different transfers.',
+				description: 'Several transfers executed at the same time. A document can be provided to create a multi-transfer which is composed of many different transfers.',
 			},
 		],
 		default: 'transfers',
@@ -291,6 +290,5 @@ export const requestsOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: ``,
 	},
 ];

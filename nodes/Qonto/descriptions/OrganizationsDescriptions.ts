@@ -12,6 +12,7 @@ export const organizationsOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,9 +22,9 @@ export const organizationsOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Get organization and its bank_accounts',
+				name: 'Get Organization and Its Bank_accounts',
 				value: 'getOrganizationAndItsBank_accounts',
-				description: '',
+				action: 'Get organization and its bank accounts an organizations',
 			},
 		],
 		default: 'getOrganizationAndItsBank_accounts',

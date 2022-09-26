@@ -6,7 +6,7 @@ import {
 export class QontoApi implements ICredentialType {
 		name = 'qontoApi';
 		displayName = 'Qonto API';
-		documentationUrl = 'Qonto';
+		documentationUrl = 'https://api-doc.qonto.com/docs/business-api';
 		properties: INodeProperties[] = [
 				{
 				displayName: 'Environment Type',

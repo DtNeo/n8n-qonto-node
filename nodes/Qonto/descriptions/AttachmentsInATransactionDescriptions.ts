@@ -12,6 +12,7 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,24 +22,24 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Upload attachment to a transaction',
+				name: 'Upload Attachment to a Transaction',
 				value: 'uploadAttachmentToATransaction',
-				description: '',
+				action: 'Upload attachment to a transaction an attachments in a transaction',
 			},
 			{
-				name: 'List attachments in a transaction',
+				name: 'List Attachments in a Transaction',
 				value: 'listAttachmentsInATransaction',
-				description: '',
+				action: 'List attachments in a transaction an attachments in a transaction',
 			},
 			{
-				name: 'Remove all attachments from a transaction',
+				name: 'Remove All Attachments From a Transaction',
 				value: 'removeAllAttachmentsFromATransaction',
-				description: '',
+				action: 'Remove all attachments from a transaction an attachments in a transaction',
 			},
 			{
-				name: 'Remove an attachment from a transaction',
+				name: 'Remove an Attachment From a Transaction',
 				value: 'removeAnAttachmentFromATransaction',
-				description: '',
+				action: 'Remove an attachment from a transaction an attachments in a transaction',
 			},
 		],
 		default: 'uploadAttachmentToATransaction',
@@ -67,7 +68,7 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		description: 'Upload an attachment to a transaction',
 	},
 	{
-		displayName: 'Attachment Ids',
+		displayName: 'Attachment IDs',
 		name: 'attachment_ids',
 		placeholder: 'Add Attachments',
 		type: 'fixedCollection',
@@ -123,7 +124,7 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		},
 		placeholder: 'aab86d8a-0d4c-4749-9a49-0ada88a9c423',
 		default: '',
-		description: 'Retrieve the list of attachments within a transaction.',
+		description: 'Retrieve the list of attachments within a transaction',
 	},
 // ------------------------
 //      ATTACHMENTS IN TRANSACTIONS - Remove all attachments from a transaction

@@ -12,6 +12,7 @@ export const attachmentOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,14 +22,14 @@ export const attachmentOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Upload attachment',
+				name: 'Upload Attachment',
 				value: 'uploadAttachment',
-				description: '',
+				action: 'Upload attachment an attachment',
 			},
 			{
-				name: 'Show attachment',
+				name: 'Show Attachment',
 				value: 'showAttachment',
-				description: '',
+				action: 'Show attachment an attachment',
 			},
 		],
 		default: 'showAttachment',
@@ -38,7 +39,7 @@ export const attachmentOperations: INodeProperties[] = [
 // ------------------------
 
 	{
-		displayName: 'Attachment Ids',
+		displayName: 'Attachment IDs',
 		name: 'attachment_ids',
 		placeholder: 'Add Attachments',
 		type: 'fixedCollection',
@@ -95,6 +96,6 @@ export const attachmentOperations: INodeProperties[] = [
 		},
 		placeholder: 'e72f6e43-0f27-4415-8781-ad648a89b47f',
 		default: '',
-		description: 'Obtain the details (e.g: download URL) for a specific attachment.',
+		description: 'Obtain the details (e.g: download URL) for a specific attachment',
 	},
 ];

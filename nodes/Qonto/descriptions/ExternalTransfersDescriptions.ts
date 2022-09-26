@@ -12,6 +12,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,24 +22,24 @@ export const externalTransfersOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Create external transfers with creditor data',
+				name: 'Create External Transfers with Creditor Data',
 				value: 'createExternalTransfersWithCreditorData',
-				description: '',
+				action: 'Create external transfers with creditor data an external transfers',
 			},
 			{
-				name: 'List external transfers',
+				name: 'List External Transfers',
 				value: 'listExternalTransfers',
-				description: '',
+				action: 'List external transfers an external transfers',
 			},
 			{
-				name: 'Create an external transfer',
+				name: 'Create an External Transfer',
 				value: 'createAnExternalTransfer',
-				description: '',
+				action: 'Create an external transfer an external transfers',
 			},
 			{
-				name: 'Show an external transfer',
+				name: 'Show an External Transfer',
 				value: 'showAnExternalTransfer',
-				description: '',
+				action: 'Show an external transfer an external transfers',
 			},
 		],
 		default: 'createExternalTransfersWithCreditorData',
@@ -64,7 +65,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `IBAN of account to debit`,
+		description: 'IBAN of account to debit',
 	},
 	{
 		displayName: 'Credit IBAN',
@@ -82,7 +83,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `IBAN of account to credit`,
+		description: 'IBAN of account to credit',
 	},
 	{
 		displayName: 'Credit Account Name',
@@ -100,7 +101,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `The name of the credit account`,
+		description: 'The name of the credit account',
 	},
 	{
 		displayName: 'Credit Account Currency',
@@ -118,13 +119,12 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `Can be either the currency of the debit_iban or the currency of the creditor. Allowed values is only EUR at the moment.`,
+		description: 'Can be either the currency of the debit_iban or the currency of the creditor. Allowed values is only EUR at the moment.',
 	},
 	{
 		displayName: 'Reference',
 		name: 'reference',
 		type: 'string',
-		required: false,
 		displayOptions: {
 			show: {
 				resource: [
@@ -136,13 +136,12 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `Transfer reference that can be used to enter transfer details to further describe the transfer - Maximum 140 characters`,
+		description: 'Transfer reference that can be used to enter transfer details to further describe the transfer - Maximum 140 characters',
 	},
 	{
 		displayName: 'Note',
 		name: 'note',
 		type: 'string',
-		required: false,
 		displayOptions: {
 			show: {
 				resource: [
@@ -154,7 +153,6 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: ``,
 	},
 	{
 		displayName: 'Currency',
@@ -172,13 +170,12 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: 'EUR',
-		description: `The currency should be EUR.`,
+		description: 'The currency should be EUR',
 	},
 	{
 		displayName: 'Scheduled Date',
 		name: 'scheduled_date',
 		type: 'dateTime',
-		required: false,
 		displayOptions: {
 			show: {
 				resource: [
@@ -191,7 +188,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 		},
 		placeholder: '2021-12-31',
 		default: '',
-		description: `YYYY-MM-DD, indicates when the external transfer was scheduled to be sent by Qonto.`,
+		description: 'YYYY-MM-DD, indicates when the external transfer was scheduled to be sent by Qonto',
 	},
 	{
 		displayName: 'Amount',
@@ -209,13 +206,12 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `The amount corresponds to the amount of the transaction in the currency of the bank account.`,
+		description: 'The amount corresponds to the amount of the transaction in the currency of the bank account',
 	},
 	{
 		displayName: 'Idempotency Key',
 		name: 'idempotency_key',
 		type: 'string',
-		required: false,
 		displayOptions: {
 			show: {
 				resource: [
@@ -227,10 +223,9 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: ``,
 	},
 	{
-		displayName: 'Attachment Ids',
+		displayName: 'Attachment IDs',
 		name: 'attachment_ids',
 		placeholder: 'Add Attachments',
 		type: 'fixedCollection',
@@ -306,8 +301,8 @@ export const externalTransfersOperations: INodeProperties[] = [
 		typeOptions: {
 			minValue: 1,
 		},
-		default: 10,
-		description: 'How many results to return.',
+		default: 50,
+		description: 'Max number of results to return',
 	},
 	{
 		displayName: 'Filters',
@@ -327,20 +322,18 @@ export const externalTransfersOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-			displayName: 'scheduled_date_from',
+			displayName: 'Scheduled_date_from',
 			name: 'scheduled_date_from',
 			type: 'dateTime',
 			placeholder: '2019-01-10',
 			default: '',
-			description: ``,
 		},
 		{
-			displayName: 'scheduled_date_to',
+			displayName: 'Scheduled_date_to',
 			name: 'scheduled_date_to',
 			type: 'dateTime',
 			placeholder: '2019-01-10',
 			default: '',
-			description: ``,
 		},
 		{
 			displayName: 'Status',
@@ -348,31 +341,29 @@ export const externalTransfersOperations: INodeProperties[] = [
 			type: 'string',
 			placeholder: 'settled',
 			default: '',
-			description: `Allowed values: pending, processing, canceled, declined, settled (no combinaison possible yet)`,
+			description: 'Allowed values: pending, processing, canceled, declined, settled (no combinaison possible yet)',
 		},
 		{
-			displayName: 'updated_at_from',
+			displayName: 'Updated_at_from',
 			name: 'updated_at_from',
 			type: 'dateTime',
 			placeholder: '2019-01-10T11:47:53.123Z',
 			default: '',
-			description: ``,
 		},
 		{
-			displayName: 'updated_at_to',
+			displayName: 'Updated_at_to',
 			name: 'updated_at_to',
 			type: 'dateTime',
 			placeholder: '2019-01-10T11:47:53.123Z',
 			default: '',
-			description: ``,
 		},
 		{
-			displayName: 'beneficiary_ids',
+			displayName: 'Beneficiary_ids',
 			name: 'beneficiary_ids',
 			type: 'string',
 			placeholder: '',
 			default: '',
-			description: `Allows filtering on a list of beneficiary IDs`,
+			description: 'Allows filtering on a list of beneficiary IDs',
 		},
 	],
 	},
@@ -397,7 +388,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `This is a unique string (we advise to use a uuid) that identifies a transfer. This is used by Qonto to prevent "double spending" by accidentaly replaying the same API call.`,
+		description: 'This is a unique string (we advise to use a uuid) that identifies a transfer. This is used by Qonto to prevent "double spending" by accidentaly replaying the same API call.',
 	},
 	{
 		displayName: 'Beneficiary ID',
@@ -415,7 +406,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `IBAN of account to debit`,
+		description: 'IBAN of account to debit',
 	},
 	{
 		displayName: 'Debit IBAN',
@@ -433,7 +424,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `IBAN of account to debit`,
+		description: 'IBAN of account to debit',
 	},
 	{
 		displayName: 'Reference',
@@ -451,13 +442,12 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `Transfer reference that can be used to enter transfer details to further describe the transfer - Maximum 140 characters`,
+		description: 'Transfer reference that can be used to enter transfer details to further describe the transfer - Maximum 140 characters',
 	},
 	{
 		displayName: 'Note',
 		name: 'note',
 		type: 'string',
-		required: false,
 		displayOptions: {
 			show: {
 				resource: [
@@ -469,7 +459,6 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: ``,
 	},
 	{
 		displayName: 'Currency',
@@ -487,13 +476,12 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: 'EUR',
-		description: `The currency should be EUR.`,
+		description: 'The currency should be EUR',
 	},
 	{
 		displayName: 'Scheduled Date',
 		name: 'scheduled_date',
 		type: 'dateTime',
-		required: false,
 		displayOptions: {
 			show: {
 				resource: [
@@ -506,7 +494,7 @@ export const externalTransfersOperations: INodeProperties[] = [
 		},
 		placeholder: '2021-12-31',
 		default: '',
-		description: `YYYY-MM-DD, indicates when the external transfer was scheduled to be sent by Qonto.`,
+		description: 'YYYY-MM-DD, indicates when the external transfer was scheduled to be sent by Qonto',
 	},
 	{
 		displayName: 'Amount',
@@ -524,10 +512,10 @@ export const externalTransfersOperations: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: `The amount corresponds to the amount of the transaction in the currency of the bank account.`,
+		description: 'The amount corresponds to the amount of the transaction in the currency of the bank account',
 	},
 	{
-		displayName: 'Attachment Ids',
+		displayName: 'Attachment IDs',
 		name: 'attachment_ids',
 		placeholder: 'Add Attachments',
 		type: 'fixedCollection',
@@ -584,6 +572,6 @@ export const externalTransfersOperations: INodeProperties[] = [
 		},
 		placeholder: '7b7a5ed6-3903-4782-889d-b4f64bd7bef9',
 		default: '',
-		description: 'Get a single external transfer.',
+		description: 'Get a single external transfer',
 	},
 ];

@@ -12,6 +12,7 @@ export const membershipsOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,9 +22,9 @@ export const membershipsOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'List memberships',
+				name: 'List Memberships',
 				value: 'listMemberships',
-				description: '',
+				action: 'List memberships a memberships',
 			},
 		],
 		default: 'listMemberships',
@@ -70,7 +71,7 @@ export const membershipsOperations: INodeProperties[] = [
 		typeOptions: {
 			minValue: 1,
 		},
-		default: 10,
-		description: 'How many results to return.',
+		default: 50,
+		description: 'Max number of results to return',
 	},
 ];

@@ -12,6 +12,7 @@ export const labelsOperations: INodeProperties[] = [
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -21,14 +22,14 @@ export const labelsOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'List labels',
+				name: 'List Labels',
 				value: 'listLabels',
-				description: '',
+				action: 'List labels a labels',
 			},
 			{
-				name: 'Show label',
+				name: 'Show Label',
 				value: 'showLabel',
-				description: '',
+				action: 'Show label a labels',
 			},
 		],
 		default: 'listLabels',
@@ -74,8 +75,8 @@ export const labelsOperations: INodeProperties[] = [
 		typeOptions: {
 			minValue: 1,
 		},
-		default: 10,
-		description: 'How many results to return.',
+		default: 50,
+		description: 'Max number of results to return',
 	},
 
 // ------------------------
@@ -83,7 +84,7 @@ export const labelsOperations: INodeProperties[] = [
 // ------------------------
 
 	{
-		displayName: 'id',
+		displayName: 'ID',
 		name: 'id',
 		type: 'string',
 		required: true,
@@ -99,6 +100,6 @@ export const labelsOperations: INodeProperties[] = [
 		},
 		placeholder: '2d9663fd-1748-4ed4-a590-48066ae9e1cb',
 		default: '',
-		description: `Retrieve all labels within the organization.`,
+		description: 'Retrieve all labels within the organization',
 	},
 ];
