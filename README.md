@@ -1,47 +1,94 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# n8n-nodes-qonto
 
-# n8n-nodes-starter
+This is an n8n community node. It lets you use app/Qont in your n8n workflows.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](n8n.io). It includes the node linter and other dependencies.
+Qonto's API is organized around REST. It uses built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. JSON is returned in all API responses, including errors.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-## Prerequisites
+[Installation](#installation)  
+[Operations](#operations)  
+[Credentials](#credentials)  <!-- delete if no auth needed -->  
+[Compatibility](#compatibility)  
+[Usage](#usage)  <!-- delete if not using this section -->  
+[Resources](#resources)  
+[Version history](#version-history)  <!-- delete if not using this section -->  
 
-You need the following installed on your development machine:
+## Installation
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 16. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-	```
-	npm install n8n -g
-	```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
+
+## Operations
+
+[API Documentation requests](https://api-doc.qonto.com/docs/business-api/6434cbb9d968d-qonto)
+
+Actual Status of Qonto node:
+
+    attachment Operations,
+    	GET - Ok
+    	POST - No, need Oauth2
+    attachmentsInATransaction Operations,
+    	GET - Ok
+    	POST - No, need Oauth2
+    	DELETE - No, need Oauth2
+    beneficiaries Operations,
+    	GET - Ok
+    	PATCH - ?
+    externalTransfers Operations,
+    	GET - Ok
+    	POST - No, need Oauth2
+    internalTransactions Operations,
+    	POST - No, need Oauth2
+    labels Operations,
+    	GET - Ok
+    memberships Operations,
+    	GET - Ok
+    organizations Operations,
+    	GET - Ok
+    requests Operations,
+    	GET - Ok
+    	POST - No, need Oauth2
+    transactions Operations
+    	GET - Ok
+
+    Pagination - Ok
+    Filters - Ok
+
+## Credentials
+
+### login:key
+
+Find it on your our qonto account.
+[Qonto help French version](https://help.qonto.com/fr/articles/4359624-ou-trouver-mon-identifiant-et-ma-cle-secrete-api)
+[API documentation](https://api-doc.qonto.com/docs/business-api/ZG9jOjQ2NDA2-introduction)
+
+### Oauth2
+
+Need a request to Qonto team.
+
+## Compatibility
+
+Only one version. Not all works
+
+## Usage
+
+There are basics usages and more intenses.
+To stay simple use the login:key authentification. Find it on your our qonto account.
+You will be able to have all basics informations. Organization and its bank_accounts (balance too !), Beneficiaires, Labels, Memberships, Transactions ...
+With that, you have access to your bank account without going in to the website !
+
+More intenses usages :
+Connexion Oauth2 requires.
+Create transactions, upload attachment, changes beneficiaire and even autorize and refuse request transaction !
+
+API Qonto give you a lot of opportunities.
 
 
-## Using this starter
+## Resources
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+* [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
+* [qonto API documentation](https://api-doc.qonto.com/docs/business-api/)
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-    ```
-    git clone https://github.com/<your organization>/<your-repo-name>.git
-    ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+## Version history
 
-## More information
-
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
-
-## License
-
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+Version 1.
