@@ -1,17 +1,25 @@
 import {
-	LoggerProxy as Logger
-} from 'n8n-workflow';
-
-import {
-	IExecuteFunctions, IExecuteSingleFunctions, IHookFunctions, ILoadOptionsFunctions
+	IExecuteFunctions,
+	IExecuteSingleFunctions,
+	IHookFunctions,
+	ILoadOptionsFunctions
 } from 'n8n-core';
 
 import {
-	ICredentialDataDecryptedObject, IDataObject, IHttpRequestMethods, IHttpRequestOptions, INodePropertyOptions, IPollFunctions, NodeApiError, NodeOperationError
+	ICredentialDataDecryptedObject,
+	IDataObject,
+	IHttpRequestMethods,
+	IHttpRequestOptions,
+	INodePropertyOptions,
+	IPollFunctions,
+	NodeApiError,
+	NodeOperationError
 } from 'n8n-workflow';
 
 import {
-	flow, isEmpty, omit
+	flow,
+	isEmpty,
+	omit
 } from 'lodash';
 
 import {
@@ -61,14 +69,12 @@ export async function qontoApiRequest(
 			options.uri = `${authUrl}/v2/${endpoint}`;
 			options.headers!.Authorization = `${credentials!.login}:${credentials!.secretKey}`;
 
-			Logger.error('COUCOU', {options});
-
 			return await this.helpers.request!.call(this, options);
 		} else {
 			const credentials = await this.getCredentials('qontoOAuth2Api') as ICredentialDataDecryptedObject;
-			const authUrl = credentials.environment === 'sandbox' ? 'https://oauth-sandbox.staging.qonto.co' : 'https://oauth.qonto.com';
+			const authUrl = credentials.environment === 'sandbox' ? 'https://thirdparty-sandbox.staging.qonto.co' : 'https://thirdparty.qonto.com';		
 			options.uri = `${authUrl}/v2/${endpoint}`;
-//			headers = {'Authorization': `Bearer ${access_token}`;
+			headers = {'Authorization': `Bearer ${credentials.accessToken}`, 'X-Qonto-Staging-Token': credentials.XQontoStagingToken};
 			
 			//@ts-ignore
 			return await this.helpers.requestOAuth2.call(this, 'qontoOAuth2Api', options, { tokenType: 'Bearer' });

@@ -195,12 +195,6 @@ export const transactionsOperations: INodeProperties[] = [
 			type: 'boolean',
 			default: false,
 			description: 'Whether transactions can be filtered based on the presence of one or more attachments. This is achieved using the with_attachments boolean param.',
-			displayOptions: {
-				show: {
-					resource: ['transactions'],
-					operation: ['listTransactions'],
-				},
-			},
 		},
 		{
 			displayName: 'Labels',
@@ -208,12 +202,6 @@ export const transactionsOperations: INodeProperties[] = [
 			type: 'boolean',
 			default: false,
 			description: 'Whether for each transactions, labels can be embedded in the response object, using the includes params',
-			displayOptions: {
-				show: {
-					resource: ['transactions'],
-					operation: ['listTransactions'],
-				},
-			},
 		},
 		{
 			displayName: 'Attachments',
@@ -221,12 +209,6 @@ export const transactionsOperations: INodeProperties[] = [
 			type: 'boolean',
 			default: false,
 			description: 'Whether for each transactions, attachments can be embedded in the response object, using the includes params',
-			displayOptions: {
-				show: {
-					resource: ['transactions'],
-					operation: ['listTransactions'],
-				},
-			},
 		},
 	],
 	},

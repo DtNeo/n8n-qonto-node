@@ -24,21 +24,24 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 Actual Status of Qonto node:
 
+    SANDBOX didn't work. I don't know why... URL ?
+    Now PROD works on Oauth2 (Thank you Jon)
+
     attachment Operations,
     	GET - Ok
-    	POST - No, need Oauth2
+    	POST - Need to be test in SANDBOX Oauth2
     attachmentsInATransaction Operations,
     	GET - Ok
-    	POST - No, need Oauth2
-    	DELETE - No, need Oauth2
+    	POST - No, Need to be test in SANDBOX Oauth2
+    	DELETE - No, Need to be test in SANDBOX Oauth2
     beneficiaries Operations,
     	GET - Ok
     	PATCH - ?
     externalTransfers Operations,
     	GET - Ok
-    	POST - No, need Oauth2
+    	POST - Need to be test in SANDBOX Oauth2
     internalTransactions Operations,
-    	POST - No, need Oauth2
+    	POST - Need to be test in SANDBOX Oauth2
     labels Operations,
     	GET - Ok
     memberships Operations,
@@ -47,12 +50,14 @@ Actual Status of Qonto node:
     	GET - Ok
     requests Operations,
     	GET - Ok
-    	POST - No, need Oauth2
+    	POST - Need to be test in SANDBOX Oauth2
     transactions Operations
     	GET - Ok
 
     Pagination - Ok
     Filters - Ok
+    X-Qonto-Idempotency-Key - with uuid "import { v4 as uuid } from 'uuid';" - seems ok
+
 
 ## Credentials
 
@@ -64,24 +69,24 @@ Find it on your our qonto account.
 
 ### Oauth2
 
-Need a request to Qonto team.
+Portal Connect Partners : https://getqonto.atlassian.net/servicedesk/customer/portal/5
 
 ## Compatibility
 
-Only one version. Not all works
+Qonto API 2.0
 
 ## Usage
 
-There are basics usages and more intenses.
-To stay simple use the login:key authentification. Find it on your our qonto account.
-You will be able to have all basics informations. Organization and its bank_accounts (balance too !), Beneficiaires, Labels, Memberships, Transactions ...
-With that, you have access to your bank account without going in to the website !
+You will be able to have all basics informations: 
+- Organization and its bank_accounts (balance too !),
+- Beneficiaires,
+- Labels
+- Memberships
+- Transactions
+- And more 
 
-More intenses usages :
-Connexion Oauth2 requires.
+WIth Connexion Oauth2 you can do more:
 Create transactions, upload attachment, changes beneficiaire and even autorize and refuse request transaction !
-
-API Qonto give you a lot of opportunities.
 
 
 ## Resources
@@ -91,4 +96,4 @@ API Qonto give you a lot of opportunities.
 
 ## Version history
 
-Version 1.
+Version 2.

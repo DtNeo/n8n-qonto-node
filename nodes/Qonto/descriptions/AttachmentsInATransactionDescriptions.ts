@@ -68,13 +68,10 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		description: 'Upload an attachment to a transaction',
 	},
 	{
-		displayName: 'Attachment IDs',
+		displayName: 'Attachments Binary',
 		name: 'attachment_ids',
-		placeholder: 'Add Attachments',
-		type: 'fixedCollection',
-		typeOptions: {
-			multipleValues: true,
-		},
+		type: 'string',
+		required: true,	
 		displayOptions: {
 			show: {
 				resource: [
@@ -85,23 +82,8 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 				],
 			},
 		},
-		options: [
-			{
-				name: 'attachmentsBinary',
-				displayName: 'Attachments Binary',
-				values: [
-					{
-						displayName: 'Property',
-						name: 'property',
-						type: 'string',
-						default: '',
-						description: 'Name of the binary property containing the data to be added to the transaction as an attachment. Multiple properties can be set separated by comma.',
-					},
-				],
-			},
-		],
-		default: {},
-		description: 'Array of supported attachments to add to the message',
+		default: '',
+		description: 'Object property name which holds binary data',
 	},
 	
 // ------------------------

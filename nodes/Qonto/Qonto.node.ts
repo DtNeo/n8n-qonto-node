@@ -1,6 +1,9 @@
-import { IExecuteFunctions } from 'n8n-core';
+import {
+	IExecuteFunctions
+} from 'n8n-core';
 
 import {
+	IBinaryData,
 	ICredentialsDecrypted,
 	ICredentialTestFunctions,
 	IDataObject,
@@ -14,11 +17,18 @@ import {
 	NodeOperationError,
 } from 'n8n-workflow';
 
-import { isEmpty } from 'lodash';
+import {
+	isEmpty
+} from 'lodash';
 
-import { OptionsWithUri } from 'request';
+import {
+	OptionsWithUri
+} from 'request';
 
-import { handleListing, qontoApiRequest } from './helpers';
+import {
+	handleListing,
+	qontoApiRequest
+} from './helpers';
 
 import {
 	attachmentOperations,
@@ -36,6 +46,8 @@ import {
 interface IidLabels {
 	showLabel: string;
 }
+
+import { v4 as uuid } from 'uuid';
 
 export class Qonto implements INodeType {
 	description: INodeTypeDescription = {
@@ -157,11 +169,7 @@ export class Qonto implements INodeType {
 		const resource = this.getNodeParameter('resource', 0) as string;
 		const operation = this.getNodeParameter('operation', 0) as string;
 
-		let headers: IDataObject = {
-			Accept: 'application/json',
-			'Content-Type': 'application/json',
-			'X-Qonto-Staging-Token': 'XXX',
-		};
+		let headers: IDataObject = {};
 		const body: IDataObject = {};
 		const query: IDataObject = {};
 
@@ -181,10 +189,7 @@ export class Qonto implements INodeType {
 						const externalTransfer = {
 							credit_iban: this.getNodeParameter('credit_iban', i) as string,
 							credit_account_name: this.getNodeParameter('credit_account_name', i) as string,
-							credit_account_currency: this.getNodeParameter(
-								'credit_account_currency',
-								i,
-							) as string,
+							credit_account_currency: this.getNodeParameter('credit_account_currency', i) as string,
 							reference: this.getNodeParameter('reference', i) as string,
 							note: this.getNodeParameter('note', i) as string,
 							currency: this.getNodeParameter('currency', i) as string,
@@ -217,7 +222,7 @@ export class Qonto implements INodeType {
 					if (operation === 'createAnExternalTransfer') {
 						const endpoint = `external_transfers`;
 
-						const idempotencyKey = this.getNodeParameter('idempotency_key', i) as string;
+						const idempotencyKey = uuid();
 						const externalTransfer = {
 							beneficiary_id: this.getNodeParameter('beneficiary_id', i) as string,
 							debit_iban: this.getNodeParameter('debit_iban', i) as string,
@@ -289,8 +294,8 @@ export class Qonto implements INodeType {
 				if (resource === 'attachment') {
 					if (operation === 'uploadAttachment') {
 						const endpoint = `attachments`;
-						const idempotencyKey = this.getNodeParameter('idempotency_key', i) as string;
-						const attachmentIds = this.getNodeParameter('attachment_ids', i) as IDataObject;
+						const idempotencyKey = uuid();
+						const attachmentIds = this.getNodeParameter('attachment_ids', i) as IBinaryData;
 
 						headers = { 'X-Qonto-Idempotency-Key': idempotencyKey };
 						body.attachment_ids = attachmentIds;
@@ -355,9 +360,9 @@ export class Qonto implements INodeType {
 					if (operation === 'uploadAttachmentToATransaction') {
 						const id = this.getNodeParameter(`id`, i) as string;
 						const endpoint = `transactions/${id}/attachments`;
-						const idempotencyKey = this.getNodeParameter('idempotency_key', i) as string;
+						const idempotencyKey = uuid();
 						headers = { 'X-Qonto-Idempotency-Key': idempotencyKey };
-						const attachmentIds = this.getNodeParameter('attachment_ids', i) as IDataObject;
+						const attachmentIds = this.getNodeParameter('attachment_ids', i) as IBinaryData;
 
 						responseData = await qontoApiRequest.call(this, headers, 'POST', endpoint, {}, {});
 					}
@@ -423,7 +428,7 @@ export class Qonto implements INodeType {
 				if (resource === 'internalTransactions') {
 					if (operation === 'createInternalTransfer') {
 						const endpoint = `internal_transfers`;
-						const idempotencyKey = this.getNodeParameter('idempotency_key', i) as string;
+						const idempotencyKey = uuid();
 						headers = { 'X-Qonto-Idempotency-Key': idempotencyKey };
 						const externalTransfer = {
 							debit_iban: this.getNodeParameter('debit_iban', i) as string,
@@ -459,7 +464,7 @@ export class Qonto implements INodeType {
 						const id = this.getNodeParameter(`id`, i) as string;
 						const requestType = this.getNodeParameter(`request_type`, i) as string;
 						const endpoint = `requests/${requestType}/${id}/approve`;
-						const idempotencyKey = this.getNodeParameter('idempotency_key', i) as string;
+						const idempotencyKey = uuid();
 						headers = { 'X-Qonto-Idempotency-Key': idempotencyKey };
 						const debitIban = this.getNodeParameter('debit_iban', i) as string;
 						body.debit_iban = debitIban;
@@ -470,7 +475,7 @@ export class Qonto implements INodeType {
 						const id = this.getNodeParameter(`id`, i) as string;
 						const requestType = this.getNodeParameter(`request_type`, i) as string;
 						const endpoint = `requests/${requestType}/${id}/decline`;
-						const idempotencyKey = this.getNodeParameter('idempotency_key', i) as string;
+						const idempotencyKey = uuid();
 						headers = { 'X-Qonto-Idempotency-Key': idempotencyKey };
 						const declinedNote = this.getNodeParameter('declined_note', i) as string;
 						body.declined_note = declinedNote;
