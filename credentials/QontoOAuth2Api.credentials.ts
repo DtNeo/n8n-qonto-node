@@ -56,7 +56,7 @@ export class QontoOAuth2Api implements ICredentialType {
 			name: 'scope',
 			type: 'string',
 			required: true,
-			default: 'offline_access organization.read attachment.write internal_transfer.write',
+			default: 'offline_access organization.read attachment.write internal_transfer.write client_invoices.read client_invoices.write',
 			description: '',
 		},
 		{
