@@ -57,7 +57,7 @@ export class QontoOAuth2Api implements ICredentialType {
 			type: 'string',
 			required: true,
 			default: '',
-			description: '',
+			description: 'All scope details here: https://api-doc.qonto.com/docs/business-api/6434cbb9d968d-qonto',
 		},
 		{
 			displayName: 'X-Qonto-Staging-Token',

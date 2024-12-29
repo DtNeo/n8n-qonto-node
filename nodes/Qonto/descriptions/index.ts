@@ -8,4 +8,11 @@ export * from './MembershipsDescriptions';
 export * from './OrganizationsDescriptions';
 export * from './RequestsDescriptions';
 export * from './TransactionsDescriptions';
-
+export * from './suplierInvoicesDescriptions';
+export * from './clientsInvoicesDescriptions';
+export * from './creditNotesDescriptions';
+export * from './clientsDescriptions';
+export * from './teamsDescriptions';
+export * from './statementsDescriptions';
+export * from './insuranceContractsDescriptions';
+export * from './cardsDescriptions';

@@ -30,6 +30,14 @@ import {
 	organizationsOperations,
 	requestsOperations,
 	transactionsOperations,
+	suplierInvoicesOperations,
+  clientsInvoicesOperations,
+  creditNotesOperations,
+  clientsOperations,
+  teamsOperations,
+  statementsOperations,
+  insuranceContractsOperations,
+  cardsOperations,
 } from './descriptions';
 
 interface IidLabels {
