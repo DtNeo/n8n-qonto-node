@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-qonto",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Qonto is a neo-bank. This node give access to all functions of this bank",
   "keywords": [
     "n8n-community-node-package"
@@ -36,7 +36,6 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-<<<<<<< HEAD
       "dist/credentials/QontoApi.credentials.js",
       "dist/credentials/QontoOAuth2Api.credentials.js"
     ],

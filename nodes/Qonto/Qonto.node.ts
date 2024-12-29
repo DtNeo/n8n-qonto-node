@@ -4,26 +4,15 @@ import {
 
 import {
 	IBinaryData,
-	ICredentialsDecrypted,
-	ICredentialTestFunctions,
 	IDataObject,
-	ILoadOptionsFunctions,
-	INodeCredentialTestResult,
 	INodeExecutionData,
-	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-	NodeApiError,
-	NodeOperationError,
 } from 'n8n-workflow';
 
 import {
 	isEmpty
 } from 'lodash';
-
-import {
-	OptionsWithUri
-} from 'request';
 
 import {
 	handleListing,
@@ -55,7 +44,7 @@ export class Qonto implements INodeType {
 		name: 'Qonto',
 		icon: 'file:Qonto.svg',
 		group: ['output'],
-		version: 1,
+		version: 1.2,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description: 'Consume Qonto API',
 		defaults: {
