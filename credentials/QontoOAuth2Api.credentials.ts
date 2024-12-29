@@ -29,7 +29,7 @@ export class QontoOAuth2Api implements ICredentialType {
 			type: 'hidden',
 			required: true,
 			default:
-				'={{ $self["environment"] === "sandbox" ? "https://oauth-sandbox.staging.qonto.co/oauth2/auth" : "https://oauth.qonto.com/oauth2/auth" }}',
+				'={{ $self["environment"] === "sandbox" ? "https://sandbox.staging.qonto.co/oauth2/auth" : "https://oauth.qonto.com/oauth2/auth" }}',
 		},
 		{
 			displayName: 'Access Token URL',
@@ -37,7 +37,7 @@ export class QontoOAuth2Api implements ICredentialType {
 			type: 'hidden',
 			required: true,
 			default:
-				'={{ $self["environment"] === "sandbox" ? "https://oauth-sandbox.staging.qonto.co/oauth2/token" : "https://oauth.qonto.com/oauth2/token" }}',
+				'={{ $self["environment"] === "sandbox" ? "https://sandbox.staging.qonto.co/oauth2/token" : "https://oauth.qonto.com/oauth2/token" }}',
 		},
 		{
 			displayName: 'Grant Type',
@@ -56,7 +56,7 @@ export class QontoOAuth2Api implements ICredentialType {
 			name: 'scope',
 			type: 'string',
 			required: true,
-			default: 'offline_access organization.read attachment.write internal_transfer.write',
+			default: '',
 			description: '',
 		},
 		{
