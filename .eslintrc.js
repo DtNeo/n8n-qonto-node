@@ -55,6 +55,9 @@ module.exports = {
 			rules: {
 				'n8n-nodes-base/cred-class-field-documentation-url-missing': 'off',
 				'n8n-nodes-base/cred-class-field-documentation-url-miscased': 'off',
+
+				'n8n-nodes-base/cred-filename-against-convention': 'off',
+				'n8n-nodes-base/cred-class-field-name-uppercase-first-char': 'off',
 			},
 		},
 		{
@@ -68,8 +71,16 @@ module.exports = {
 <<<<<<< HEAD
 				'n8n-nodes-base/node-execute-block-operation-missing-singular-pairing': 'off',
 				'n8n-nodes-base/node-execute-block-operation-missing-plural-pairing': 'off',
+<<<<<<< HEAD
 =======
 >>>>>>> upstream/master
+=======
+
+				'n8n-nodes-base/node-dirname-against-convention': 'off',
+				'n8n-nodes-base/node-filename-against-convention': 'off',
+				'n8n-nodes-base/node-param-operation-option-action-miscased': 'off',
+				'n8n-nodes-base/node-param-display-name-miscased': 'off',
+>>>>>>> upstream/disable-casing-rules
 			},
 		},
 	],
