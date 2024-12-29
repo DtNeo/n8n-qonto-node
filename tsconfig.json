@@ -1,27 +1,5 @@
 {
 	"compilerOptions": {
-<<<<<<< HEAD
-		"lib": [
-			"es2017",
-			"es2019"
-		],
-		"types": [
-			"node",
-		],
-		"module": "commonjs",
-		"noImplicitAny": true,
-		"removeComments": true,
-		"strictNullChecks": true,
-		"strict": true,
-		"preserveConstEnums": true,
-		"resolveJsonModule": true,
-		"declaration": true,
-		"outDir": "./dist/",
-		"target": "es2019",
-		"sourceMap": true,
-		"esModuleInterop": true,
-		"useUnknownInCatchVariables": false,
-=======
 		"strict": true,
 		"module": "commonjs",
 		"moduleResolution": "node",
@@ -42,7 +20,6 @@
 		"sourceMap": true,
 		"skipLibCheck": true,
 		"outDir": "./dist/",
->>>>>>> upstream/master
 	},
 	"include": [
 		"credentials/**/*",

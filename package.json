@@ -1,42 +1,19 @@
 {
-<<<<<<< HEAD
   "name": "n8n-nodes-qonto",
   "version": "0.1.1",
   "description": "Qonto is a neo-bank. This node give access to all functions of this bank",
-=======
-  "name": "n8n-nodes-<...>",
-  "version": "0.1.0",
-  "description": "",
->>>>>>> upstream/master
   "keywords": [
     "n8n-community-node-package"
   ],
   "license": "MIT",
   "homepage": "",
   "author": {
-<<<<<<< HEAD
     "name": "Dtneo - Aurélien DENOT",
     "email": "aurelien.denot@gmail.com"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/DtNeo/n8n-qonto-node.git"
-  },
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc && gulp build:icons",
-    "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "tslint -p tsconfig.json -c tslint.json && eslint nodes credentials package.json",
-    "lintfix": "tslint --fix -p tsconfig.json -c tslint.json && eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
-=======
-    "name": "",
-    "email": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
   },
   "engines": {
     "node": ">=18.17",
@@ -52,7 +29,6 @@
     "lint": "eslint nodes credentials package.json",
     "lintfix": "eslint nodes credentials package.json --fix",
     "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json"
->>>>>>> upstream/master
   },
   "files": [
     "dist"
@@ -69,28 +45,6 @@
     ]
   },
   "devDependencies": {
-    "@types/express": "^4.17.6",
-    "@types/lodash": "^4.14.185",
-    "@types/request-promise-native": "~1.0.15",
-    "@types/uuid": "^8.3.4",
-    "@typescript-eslint/parser": "^5.29.0",
-    "eslint-plugin-n8n-nodes-base": "^1.5.4",
-    "gulp": "^3.9.1",
-    "n8n-core": "^0.154.1",
-    "n8n-workflow": "^0.107.0",
-    "prettier": "^2.7.1",
-    "tslint": "^6.1.2",
-    "typescript": "~4.6.0"
-=======
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
-    ],
-    "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
-    ]
-  },
-  "devDependencies": {
     "@typescript-eslint/parser": "^7.16.0",
     "eslint": "^8.57.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.1",
@@ -101,6 +55,5 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
->>>>>>> upstream/master
   }
 }
