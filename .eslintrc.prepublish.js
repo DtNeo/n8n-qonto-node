@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 module.exports = {
 	extends: "./.eslintrc.js",
+=======
+/**
+ * @type {import('@types/eslint').ESLint.ConfigData}
+ */
+module.exports = {
+	extends: "./.eslintrc.js",
+
+>>>>>>> upstream/master
 	overrides: [
 		{
 			files: ['package.json'],
