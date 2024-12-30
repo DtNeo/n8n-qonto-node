@@ -3,7 +3,42 @@
 import { INodeProperties } from 'n8n-workflow';
 
 // Descriptions for the "Get a list of credit notes for an organization" operation
-export const getCreditNotesDescription: INodeProperties[] = [
+	export const creditNotesOperations: INodeProperties[] = [
+
+		// ------------------------
+		//      creditNotes
+		// ------------------------
+
+			{
+				displayName: 'Operation',
+				name: 'operation',
+				type: 'options',
+				noDataExpression: true,
+				displayOptions: {
+					show: {
+						resource: [
+							'creditNotes',
+						],
+					},
+				},
+				options: [
+					{
+						name: 'Get a list of credit notes for an organization',
+						value: 'getListCreditNotes',
+						action: 'Get a list of credit notes for an organization',
+					},
+					{
+						name: 'Get details of credit note for an organization',
+						value: 'getDetailsCreditNotes',
+						action: 'Get details of credit note for an organization',
+					},
+
+				],
+				default: 'getListCreditNotes',
+			},
+		// ------------------------
+		//      creditNotes - Get a list of credit notes for an organization
+		// ------------------------
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -41,10 +76,11 @@ export const getCreditNotesDescription: INodeProperties[] = [
         required: false,
         description: 'Fetch credit notes created before this date.',
     },
-];
 
-// Descriptions for the "Get details of credit note for an organization" operation
-export const getCreditNoteDetailsDescription: INodeProperties[] = [
+		// ------------------------
+		//      creditNotes - Get details of credit note for an organization
+		// ------------------------
+
     {
         displayName: 'Organization ID',
         name: 'organizationId',

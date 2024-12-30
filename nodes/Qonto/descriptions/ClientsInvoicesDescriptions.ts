@@ -3,7 +3,46 @@
 import { INodeProperties } from 'n8n-workflow';
 
 // Descriptions for the "List client invoices" operation
-export const listClientInvoicesDescription: INodeProperties[] = [
+export const clientsInvoicesOperations: INodeProperties[] = [
+
+// ------------------------
+//      Client Invoice
+// ------------------------
+
+{
+	displayName: 'Operation',
+	name: 'operation',
+	type: 'options',
+	noDataExpression: true,
+	displayOptions: {
+		show: {
+			resource: [
+				'clientsInvoices',
+			],
+		},
+	},
+	options: [
+		{
+			name: 'List client invoices',
+			value: 'listInvoices',
+			action: 'List client invoices',
+		},
+		{
+			name: 'Create a client invoice',
+			value: 'createClientInvoice',
+			action: 'Create a client invoice',
+		},
+		{
+			name: 'Show client invoice',
+			value: 'showClientInvoice',
+			action: 'Show client invoice',
+		},
+	],
+	default: 'listInvoices',
+},
+// ------------------------
+//      Client Invoice - List client invoices
+// ------------------------
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -41,10 +80,11 @@ export const listClientInvoicesDescription: INodeProperties[] = [
         required: false,
         description: 'Fetch invoices created before this date.',
     },
-];
 
-// Descriptions for the "Create a client invoice" operation
-export const createClientInvoiceDescription: INodeProperties[] = [
+// ------------------------
+//      Client Invoice - Create a client invoice
+// ------------------------
+
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -120,4 +160,9 @@ export const createClientInvoiceDescription: INodeProperties[] = [
             },
         ],
     },
+
+// ------------------------
+//      Client Invoice - Show client invoice
+// ------------------------
+
 ];

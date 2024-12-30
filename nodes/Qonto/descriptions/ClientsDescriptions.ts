@@ -2,8 +2,46 @@
 
 import { INodeProperties } from 'n8n-workflow';
 
-// Descriptions for the "Get client's details" operation
-export const getClientDetailsDescription: INodeProperties[] = [
+export const clientsOperations: INodeProperties[] = [
+
+	// ------------------------
+	//      clients
+	// ------------------------
+
+		{
+			displayName: 'Operation',
+			name: 'operation',
+			type: 'options',
+			noDataExpression: true,
+			displayOptions: {
+				show: {
+					resource: [
+						'clients',
+					],
+				},
+			},
+			options: [
+				{
+					name: 'Get clients details',
+					value: 'getclients',
+					action: 'Get clients details',
+				},
+				{
+					name: 'Get a list of clients',
+					value: 'getListClients',
+					action: 'SGet a list of clientsow',
+				},
+				{
+					name: 'Create a client',
+					value: 'createClient',
+					action: 'Create a client',
+				},
+			],
+			default: 'getclients',
+		},
+	// ------------------------
+	//      clients - Get client's details
+	// ------------------------
     {
         displayName: 'Client ID',
         name: 'clientId',
@@ -12,10 +50,10 @@ export const getClientDetailsDescription: INodeProperties[] = [
         required: true,
         description: 'The unique identifier of the client whose details are to be fetched.',
     },
-];
+	// ------------------------
+	//      clients - Get a list of clients
+	// ------------------------
 
-// Descriptions for the "Get a list of clients" operation
-export const getClientsListDescription: INodeProperties[] = [
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -53,10 +91,10 @@ export const getClientsListDescription: INodeProperties[] = [
         required: false,
         description: 'Fetch clients created before this date.',
     },
-];
 
-// Descriptions for the "Create a client" operation
-export const createClientDescription: INodeProperties[] = [
+	// ------------------------
+	//      clients - Create a client
+	// ------------------------
     {
         displayName: 'Organization ID',
         name: 'organizationId',

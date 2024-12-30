@@ -2,8 +2,41 @@
 
 import { INodeProperties } from 'n8n-workflow';
 
-// Descriptions for the "List teams in an organization" operation
-export const listTeamsDescription: INodeProperties[] = [
+export const teamsOperations: INodeProperties[] = [
+
+	// ------------------------
+	//      teams
+	// ------------------------
+
+		{
+			displayName: 'Operation',
+			name: 'operation',
+			type: 'options',
+			noDataExpression: true,
+			displayOptions: {
+				show: {
+					resource: [
+						'teams',
+					],
+				},
+			},
+			options: [
+				{
+					name: 'List teams in an organization',
+					value: 'listTeams',
+					action: 'List teams in an organization',
+				},
+				{
+					name: 'Create a new team',
+					value: 'createTeam',
+					action: 'Create a new team',
+				},
+			],
+			default: 'listTeams',
+		},
+	// ------------------------
+	//      teams - List teams in an organization
+	// ------------------------
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -12,10 +45,11 @@ export const listTeamsDescription: INodeProperties[] = [
         required: true,
         description: 'The unique identifier of the organization whose teams are to be listed.',
     },
-];
 
-// Descriptions for the "Create a new team" operation
-export const createTeamDescription: INodeProperties[] = [
+	// ------------------------
+	//      teams - Create a new team
+	// ------------------------
+
     {
         displayName: 'Organization ID',
         name: 'organizationId',

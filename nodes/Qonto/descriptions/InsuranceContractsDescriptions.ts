@@ -1,9 +1,56 @@
 // insuranceContractsDescriptions.ts
 
 import { INodeProperties } from 'n8n-workflow';
+export const insuranceContractsOperations: INodeProperties[] = [
 
-// Descriptions for the "Create a new insurance contract" operation
-export const createInsuranceContractDescription: INodeProperties[] = [
+	// ------------------------
+	//      insuranceContracts
+	// ------------------------
+
+		{
+			displayName: 'Operation',
+			name: 'operation',
+			type: 'options',
+			noDataExpression: true,
+			displayOptions: {
+				show: {
+					resource: [
+						'insuranceContracts',
+					],
+				},
+			},
+			options: [
+				{
+					name: 'Create a new insurance contract',
+					value: 'listTransactions',
+					action: 'Create a new insurance contract',
+				},
+				{
+					name: 'Get insurance contract',
+					value: 'getInsuranceContract',
+					action: 'Get insurance contract',
+				},
+				{
+					name: 'Update an insurance contract',
+					value: 'listTransactions',
+					action: 'Update an insurance contract',
+				},
+				{
+					name: 'Upload a PDF document for a specific insurance contract',
+					value: 'showTransaction',
+					action: 'Upload a PDF document for a specific insurance contract',
+				},
+				{
+					name: 'Delete uploaded document',
+					value: 'deleteUploaded',
+					action: 'Delete uploaded document',
+				},
+			],
+			default: 'listTransactions',
+		},
+	// ------------------------
+	//      insuranceContracts - Create a new insurance contract
+	// ------------------------
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -44,10 +91,9 @@ export const createInsuranceContractDescription: INodeProperties[] = [
         required: false,
         description: 'Details about the coverage provided by the insurance contract.',
     },
-];
-
-// Descriptions for the "Get insurance contract" operation
-export const getInsuranceContractDescription: INodeProperties[] = [
+	// ------------------------
+	//      insuranceContracts - Get insurance contract
+	// ------------------------
     {
         displayName: 'Contract ID',
         name: 'contractId',
@@ -56,10 +102,9 @@ export const getInsuranceContractDescription: INodeProperties[] = [
         required: true,
         description: 'The unique identifier of the insurance contract to be fetched.',
     },
-];
-
-// Descriptions for the "Update an insurance contract" operation
-export const updateInsuranceContractDescription: INodeProperties[] = [
+	// ------------------------
+	//      insuranceContracts - Update an insurance contract
+	// ------------------------
     {
         displayName: 'Contract ID',
         name: 'contractId',
@@ -92,10 +137,9 @@ export const updateInsuranceContractDescription: INodeProperties[] = [
         required: false,
         description: 'Updated details about the coverage provided by the insurance contract.',
     },
-];
-
-// Descriptions for the "Upload a PDF document for a specific insurance contract" operation
-export const uploadInsuranceContractPDFDescription: INodeProperties[] = [
+	// ------------------------
+	//      insuranceContracts - Upload a PDF document for a specific insurance contract
+	// ------------------------
     {
         displayName: 'Contract ID',
         name: 'contractId',
@@ -112,4 +156,7 @@ export const uploadInsuranceContractPDFDescription: INodeProperties[] = [
         required: true,
         description: 'Path to the PDF file to be uploaded.',
     },
+// ------------------------
+	//      insuranceContracts - Delete uploaded document
+	// ------------------------
 ];

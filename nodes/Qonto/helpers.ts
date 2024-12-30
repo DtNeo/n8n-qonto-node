@@ -1,100 +1,88 @@
 import {
 	IExecuteFunctions,
 	IExecuteSingleFunctions,
-	IHookFunctions,
-	ILoadOptionsFunctions
-} from 'n8n-core';
-
-import {
-	ICredentialDataDecryptedObject,
+	ILoadOptionsFunctions,
 	IDataObject,
+	NodeApiError,
 	IHttpRequestMethods,
 	IHttpRequestOptions,
-	INodePropertyOptions,
-	IPollFunctions,
-	NodeApiError,
-	NodeOperationError
 } from 'n8n-workflow';
-
-import {
-	flow,
-	isEmpty,
-	omit
-} from 'lodash';
-
-import {
-	OptionsWithUri
-} from 'request';
-
 
 /**
  * Make an API request to Qonto
  *
- * @param {IHookFunctions} this
+ * @param {IExecuteFunctions} this
+ * @param {IDataObject} headers
  * @param {string} method
- * @param {string} url
- * @param {object} body
+ * @param {string} endpoint
+ * @param {IDataObject} body
+ * @param {IDataObject} query
  * @returns {Promise<any>}
  */
-
-
 export async function qontoApiRequest(
 	this: IExecuteFunctions | IExecuteSingleFunctions | ILoadOptionsFunctions,
 	headers: IDataObject,
-	method: string,
+	method: IHttpRequestMethods,
 	endpoint: string,
 	body: IDataObject = {},
 	query: IDataObject = {},
-): Promise<any> { // tslint:disable-line:no-any
+): Promise<any> {
+	const authenticationMethod = this.getNodeParameter('authentication', 0) as string;
+	const credentials = await this.getCredentials(authenticationMethod === 'logKey' ? 'qontoApi' : 'qontoOAuth2Api');
 
-	const uri = '' as string;
-	const qs: IDataObject = {};
+	const baseUrl =
+		credentials.environment === 'sandbox'
+			? 'https://thirdparty-sandbox.staging.qonto.co/v2'
+			: 'https://thirdparty.qonto.com/v2';
 
-	const options = {
-		headers,
+	const url = `${baseUrl}/${endpoint}`;
+
+	// Ensure that url is always defined
+	if (!url || typeof url !== 'string') {
+		throw new NodeApiError(this.getNode(), { message: 'The URL for the API request is invalid.' });
+	}
+
+	const options: IHttpRequestOptions = {
 		method,
+		url, // `url` is now guaranteed to be a string
+		qs: query,
 		body,
-		qs,
-		uri,
+		headers: {
+			...headers,
+			'Content-Type': 'application/json',
+		},
 		json: true,
 	};
 
-	options.qs = query;
-
-	const authenticationMethod = this.getNodeParameter('authentication', 0) as string;
-	try {
-		if (authenticationMethod === 'logKey') {
-			const credentials = await this.getCredentials('qontoApi');
-			const authUrl = credentials.environment === 'sandbox' ? 'https://thirdparty-sandbox.staging.qonto.co' : 'https://thirdparty.qonto.com';
-			options.uri = `${authUrl}/v2/${endpoint}`;
-			options.headers!.Authorization = `${credentials!.login}:${credentials!.secretKey}`;
-
-			return await this.helpers.request!.call(this, options);
-		} else {
-			const credentials = await this.getCredentials('qontoOAuth2Api') as ICredentialDataDecryptedObject;
-			const authUrl = credentials.environment === 'sandbox' ? 'https://thirdparty-sandbox.staging.qonto.co' : 'https://thirdparty.qonto.com';		
-			options.uri = `${authUrl}/v2/${endpoint}`;
-			headers = {'Authorization': `Bearer ${credentials.accessToken}`, 'X-Qonto-Staging-Token': credentials.XQontoStagingToken};
-			
-			//@ts-ignore
-			return await this.helpers.requestOAuth2.call(this, 'qontoOAuth2Api', options, { tokenType: 'Bearer' });
-		}
-	} catch(error) {
-		throw new NodeApiError(this.getNode(), error);
+	// Handle authentication
+	if (authenticationMethod === 'logKey') {
+		options.headers!.Authorization = `${credentials.login}:${credentials.secretKey}`;
+		return this.helpers.httpRequest!(options);
+	} else {
+		return this.helpers.httpRequestWithAuthentication!.call(this, 'qontoOAuth2Api', options);
 	}
 }
+
 /**
  * Handles a Qonto listing by returning all items or up to a limit.
+ *
+ * @param {IDataObject} headers
+ * @param {IHttpRequestMethods} method
+ * @param {string} endpoint
+ * @param {IDataObject} body
+ * @param {IDataObject} query
+ * @param {number} i
+ * @returns {Promise<IDataObject[]>}
  */
 export async function handleListing(
 	this: IExecuteFunctions,
 	headers: IDataObject,
-	method: string,
+	method: IHttpRequestMethods,
 	endpoint: string,
 	body: IDataObject = {},
 	query: IDataObject = {},
 	i: number,
-) {
+): Promise<IDataObject[]> {
 	const returnData: IDataObject[] = [];
 	let responseData;
 
@@ -103,14 +91,27 @@ export async function handleListing(
 
 	query.current_page = 1;
 
-	do {
-		responseData = await qontoApiRequest.call(this, {}, 'GET', endpoint, {}, query);
-		returnData.push.apply(returnData, responseData[endpoint]);
-		if (!returnAll && returnData.length >= limit) {
-			return returnData.slice(0, limit);
-		}
-		query.current_page++;
-	} while (responseData.meta.current_page < responseData.meta.total_pages);
+	try {
+		do {
+			responseData = await qontoApiRequest.call(this, headers, method, endpoint, body, query);
 
-	return returnData;
+			if (!responseData[endpoint]) {
+				throw new NodeApiError(this.getNode(), {
+					message: 'Unexpected API response format',
+				});
+			}
+
+			returnData.push(...responseData[endpoint]);
+
+			if (!returnAll && returnData.length >= limit) {
+				return returnData.slice(0, limit);
+			}
+
+			query.current_page++;
+		} while (responseData.meta.current_page < responseData.meta.total_pages);
+
+		return returnData;
+	} catch (error) {
+		throw new NodeApiError(this.getNode(), error);
+	}
 }

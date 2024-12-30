@@ -3,7 +3,43 @@
 import { INodeProperties } from 'n8n-workflow';
 
 // Descriptions for the "Get a list of supplier invoices for an organization" operation
-export const getSupplierInvoicesDescription: INodeProperties[] = [
+export const suplierInvoicesOperations: INodeProperties[] = [
+
+// ------------------------
+//      SUPPLIER INVOICES
+// ------------------------
+
+{
+	displayName: 'Operation',
+	name: 'operation',
+	type: 'options',
+	noDataExpression: true,
+	displayOptions: {
+		show: {
+			resource: [
+				'suplierInvoices',
+			],
+		},
+	},
+	options: [
+		{
+			name: 'Get a list of supplier invoices for an organization',
+			value: 'getSupplierInvoices',
+			action: 'Get a list of supplier invoices for an organization',
+		},
+		{
+			name: 'Create supplier invoices with attachments',
+			value: 'createSupplierInvoices',
+			action: 'Create supplier invoices with attachments',
+		},
+	],
+	default: 'getSupplierInvoices',
+},
+
+// ------------------------
+//      SUPPLIER INVOICES - Get a list of supplier invoices for an organization
+// ------------------------
+
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -41,10 +77,11 @@ export const getSupplierInvoicesDescription: INodeProperties[] = [
         required: false,
         description: 'Fetch invoices created before this date.',
     },
-];
 
-// Descriptions for the "Create supplier invoices with attachments" operation
-export const createSupplierInvoicesDescription: INodeProperties[] = [
+// ------------------------
+//      SUPPLIER INVOICES - Create supplier invoices with attachments
+// ------------------------
+
     {
         displayName: 'Organization ID',
         name: 'organizationId',

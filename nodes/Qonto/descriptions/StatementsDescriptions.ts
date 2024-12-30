@@ -2,8 +2,43 @@
 
 import { INodeProperties } from 'n8n-workflow';
 
-// Descriptions for the "Show statement" operation
-export const showStatementDescription: INodeProperties[] = [
+export const statementsOperations: INodeProperties[] = [
+
+	// ------------------------
+	//      statements
+	// ------------------------
+
+		{
+			displayName: 'Operation',
+			name: 'operation',
+			type: 'options',
+			noDataExpression: true,
+			displayOptions: {
+				show: {
+					resource: [
+						'statements',
+					],
+				},
+			},
+			options: [
+				{
+					name: 'Show statement',
+					value: 'showStatement',
+					action: 'Show statement',
+				},
+				{
+					name: 'List statements',
+					value: 'listStatement',
+					action: 'List statements',
+				},
+			],
+			default: 'listTransactions',
+		},
+
+	// ------------------------
+	//      statements - Show statement
+	// ------------------------
+
     {
         displayName: 'Statement ID',
         name: 'statementId',
@@ -12,10 +47,11 @@ export const showStatementDescription: INodeProperties[] = [
         required: true,
         description: 'The unique identifier of the statement to be fetched.',
     },
-];
 
-// Descriptions for the "List statements" operation
-export const listStatementsDescription: INodeProperties[] = [
+	// ------------------------
+	//      statements - List statements
+	// ------------------------
+
     {
         displayName: 'Organization ID',
         name: 'organizationId',

@@ -2,8 +2,48 @@
 
 import { INodeProperties } from 'n8n-workflow';
 
-// Descriptions for the "List cards" operation
-export const listCardsDescription: INodeProperties[] = [
+export const cardsOperations: INodeProperties[] = [
+
+	// ------------------------
+	//      cards
+	// ------------------------
+
+		{
+			displayName: 'Operation',
+			name: 'operation',
+			type: 'options',
+			noDataExpression: true,
+			displayOptions: {
+				show: {
+					resource: [
+						'cards',
+					],
+				},
+			},
+			options: [
+				{
+					name: 'List cards',
+					value: 'listCards',
+					action: 'List cards',
+				},
+				{
+					name: 'Create a new Virtual (virtual, flash, advertising) card',
+					value: 'createNew',
+					action: 'Create a new Virtual (virtual, flash, advertising) card',
+				},
+				{
+					name: 'Retrieve card data view URL',
+					value: 'retieveCard',
+					action: 'Retrieve card data view URL',
+				},
+			],
+			default: 'listCards',
+		},
+
+	// ------------------------
+	//      cards - List cards
+	// ------------------------
+
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -25,10 +65,11 @@ export const listCardsDescription: INodeProperties[] = [
         required: false,
         description: 'Filter cards by their status.',
     },
-];
 
-// Descriptions for the "Create a new Virtual (virtual, flash, advertising) card" operation
-export const createVirtualCardDescription: INodeProperties[] = [
+  // ------------------------
+	//      cards - Create a new Virtual (virtual, flash, advertising) card
+	// ------------------------
+
     {
         displayName: 'Organization ID',
         name: 'organizationId',
@@ -74,4 +115,9 @@ export const createVirtualCardDescription: INodeProperties[] = [
         required: true,
         description: 'The currency of the virtual card.',
     },
+
+  // ------------------------
+	//      cards - Retrieve card data view URL
+	// ------------------------
+
 ];
