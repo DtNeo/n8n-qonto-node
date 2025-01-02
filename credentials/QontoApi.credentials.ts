@@ -28,13 +28,15 @@ export class QontoApi implements ICredentialType {
 						displayName: 'login',
 						name: 'login',
 						type: 'string',
-						default: 'scep-1111',
+						default: '',
+						placeholder: 'scep-1111',
 				},
 				{
 						displayName: 'secret key',
 						name: 'secretKey',
 						type: 'string',
-						default: 'f8952b8244c0ce693c8f793a07e807f8',
+						default: '',
+						placeholder: 'f8952b8244c0ce693c8f793a07e807f8',
 				},
 		];
 }

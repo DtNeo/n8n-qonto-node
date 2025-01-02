@@ -5,7 +5,9 @@ import {
 	INodeTypeDescription,
 	IExecuteFunctions,
 } from 'n8n-workflow';
+
 import { NodeConnectionType } from 'n8n-workflow';
+
 import isEmpty from 'lodash/isEmpty';
 
 import {
