@@ -7,7 +7,6 @@ export const attachmentOperations: INodeProperties[] = [
 // ------------------------
 //      ATTACHMENTS
 // ------------------------
-
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -34,16 +33,15 @@ export const attachmentOperations: INodeProperties[] = [
 		],
 		default: 'showAttachment',
 	},
+
 // ------------------------
 //      ATTACHMENTS - Upload attachment
 // ------------------------
-
-
 	{
 		displayName: 'Attachments Binary',
 		name: 'attachment_ids',
 		type: 'string',
-		required: true,	
+		required: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -61,7 +59,6 @@ export const attachmentOperations: INodeProperties[] = [
 // ------------------------
 //      ATTACHMENTS - Show attachment
 // ------------------------
-
 	{
 		displayName: 'ID',
 		name: 'id',

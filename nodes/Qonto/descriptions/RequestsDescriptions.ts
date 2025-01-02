@@ -7,7 +7,6 @@ export const requestsOperations: INodeProperties[] = [
 // ------------------------
 //      REQUESTS
 // ------------------------
-
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -39,10 +38,10 @@ export const requestsOperations: INodeProperties[] = [
 		],
 		default: 'listRequests',
 	},
+
 // ------------------------
 //      REQUESTS - List requests
 // ------------------------
-
 	{
 		displayName: 'Limit',
 		name: 'limit',
@@ -133,6 +132,7 @@ export const requestsOperations: INodeProperties[] = [
 		},
 	],
 	},
+
 // ------------------------
 //      REQUESTS - Approve a request
 // ------------------------

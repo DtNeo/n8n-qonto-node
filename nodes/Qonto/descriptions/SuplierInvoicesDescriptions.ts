@@ -44,6 +44,16 @@ export const suplierInvoicesOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'suplierInvoices',
+						],
+						operation: [
+							'getSupplierInvoices',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization whose supplier invoices are to be fetched.',
@@ -52,6 +62,16 @@ export const suplierInvoicesOperations: INodeProperties[] = [
         displayName: 'Status',
         name: 'status',
         type: 'options',
+				displayOptions: {
+					show: {
+						resource: [
+							'suplierInvoices',
+						],
+						operation: [
+							'getSupplierInvoices',
+						],
+					},
+				},
         options: [
             { name: 'All', value: 'all' },
             { name: 'Pending', value: 'pending' },
@@ -65,6 +85,16 @@ export const suplierInvoicesOperations: INodeProperties[] = [
         displayName: 'Start Date',
         name: 'startDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'suplierInvoices',
+						],
+						operation: [
+							'getSupplierInvoices',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Fetch invoices created after this date.',
@@ -73,6 +103,16 @@ export const suplierInvoicesOperations: INodeProperties[] = [
         displayName: 'End Date',
         name: 'endDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'suplierInvoices',
+						],
+						operation: [
+							'getSupplierInvoices',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Fetch invoices created before this date.',
@@ -86,6 +126,16 @@ export const suplierInvoicesOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'suplierInvoices',
+						],
+						operation: [
+							'createSupplierInvoices',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization for which supplier invoices will be created.',
@@ -94,6 +144,16 @@ export const suplierInvoicesOperations: INodeProperties[] = [
         displayName: 'Supplier Invoices',
         name: 'supplierInvoices',
         type: 'fixedCollection',
+				displayOptions: {
+					show: {
+						resource: [
+							'suplierInvoices',
+						],
+						operation: [
+							'createSupplierInvoices',
+						],
+					},
+				},
         typeOptions: {
             multipleValues: true,
         },

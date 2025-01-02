@@ -48,6 +48,16 @@ export const cardsOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'cards',
+						],
+						operation: [
+							'listCards',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization whose cards are to be listed.',
@@ -56,6 +66,16 @@ export const cardsOperations: INodeProperties[] = [
         displayName: 'Status',
         name: 'status',
         type: 'options',
+				displayOptions: {
+					show: {
+						resource: [
+							'cards',
+						],
+						operation: [
+							'listCards',
+						],
+					},
+				},
         options: [
             { name: 'All', value: 'all' },
             { name: 'Active', value: 'active' },
@@ -74,6 +94,16 @@ export const cardsOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'cards',
+						],
+						operation: [
+							'createNew',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization for which the virtual card will be created.',
@@ -82,6 +112,16 @@ export const cardsOperations: INodeProperties[] = [
         displayName: 'Card Type',
         name: 'cardType',
         type: 'options',
+				displayOptions: {
+					show: {
+						resource: [
+							'cards',
+						],
+						operation: [
+							'createNew',
+						],
+					},
+				},
         options: [
             { name: 'Virtual', value: 'virtual' },
             { name: 'Flash', value: 'flash' },
@@ -95,6 +135,16 @@ export const cardsOperations: INodeProperties[] = [
         displayName: 'Card Name',
         name: 'cardName',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'cards',
+						],
+						operation: [
+							'createNew',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The name of the virtual card.',
@@ -103,6 +153,16 @@ export const cardsOperations: INodeProperties[] = [
         displayName: 'Spending Limit',
         name: 'spendingLimit',
         type: 'number',
+				displayOptions: {
+					show: {
+						resource: [
+							'cards',
+						],
+						operation: [
+							'createNew',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'The spending limit for the virtual card.',
@@ -111,6 +171,16 @@ export const cardsOperations: INodeProperties[] = [
         displayName: 'Currency',
         name: 'currency',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'cards',
+						],
+						operation: [
+							'createNew',
+						],
+					},
+				},
         default: 'EUR',
         required: true,
         description: 'The currency of the virtual card.',

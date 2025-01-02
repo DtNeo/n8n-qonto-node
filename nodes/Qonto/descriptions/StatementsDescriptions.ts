@@ -43,6 +43,16 @@ export const statementsOperations: INodeProperties[] = [
         displayName: 'Statement ID',
         name: 'statementId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'statements',
+						],
+						operation: [
+							'showStatement',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the statement to be fetched.',
@@ -56,6 +66,16 @@ export const statementsOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'statements',
+						],
+						operation: [
+							'listStatement',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization whose statements are to be listed.',
@@ -64,6 +84,16 @@ export const statementsOperations: INodeProperties[] = [
         displayName: 'Start Date',
         name: 'startDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'statements',
+						],
+						operation: [
+							'listStatement',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Fetch statements created after this date.',
@@ -72,6 +102,16 @@ export const statementsOperations: INodeProperties[] = [
         displayName: 'End Date',
         name: 'endDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'statements',
+						],
+						operation: [
+							'listStatement',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Fetch statements created before this date.',

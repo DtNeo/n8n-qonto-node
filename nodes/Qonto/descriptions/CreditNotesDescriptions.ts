@@ -43,6 +43,16 @@ import { INodeProperties } from 'n8n-workflow';
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'creditNotes',
+						],
+						operation: [
+							'getListCreditNotes',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization whose credit notes are to be fetched.',
@@ -51,6 +61,16 @@ import { INodeProperties } from 'n8n-workflow';
         displayName: 'Status',
         name: 'status',
         type: 'options',
+				displayOptions: {
+					show: {
+						resource: [
+							'creditNotes',
+						],
+						operation: [
+							'getListCreditNotes',
+						],
+					},
+				},
         options: [
             { name: 'All', value: 'all' },
             { name: 'Pending', value: 'pending' },
@@ -64,6 +84,16 @@ import { INodeProperties } from 'n8n-workflow';
         displayName: 'Start Date',
         name: 'startDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'creditNotes',
+						],
+						operation: [
+							'getListCreditNotes',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Fetch credit notes created after this date.',
@@ -72,6 +102,16 @@ import { INodeProperties } from 'n8n-workflow';
         displayName: 'End Date',
         name: 'endDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'creditNotes',
+						],
+						operation: [
+							'getListCreditNotes',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Fetch credit notes created before this date.',
@@ -85,6 +125,16 @@ import { INodeProperties } from 'n8n-workflow';
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'creditNotes',
+						],
+						operation: [
+							'getDetailsCreditNotes',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization whose credit note details are to be fetched.',
@@ -93,6 +143,16 @@ import { INodeProperties } from 'n8n-workflow';
         displayName: 'Credit Note ID',
         name: 'creditNoteId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'creditNotes',
+						],
+						operation: [
+							'getDetailsCreditNotes',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the credit note.',

@@ -7,7 +7,6 @@ export const labelsOperations: INodeProperties[] = [
 // ------------------------
 //      LABELS
 // ------------------------
-
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -34,10 +33,10 @@ export const labelsOperations: INodeProperties[] = [
 		],
 		default: 'listLabels',
 	},
+
 // ------------------------
 //      LABELS - List labels
 // ------------------------
-
 	{
 		displayName: 'Return All',
 		name: 'returnAll',
@@ -82,7 +81,6 @@ export const labelsOperations: INodeProperties[] = [
 // ------------------------
 //      LABELS - Show label
 // ------------------------
-
 	{
 		displayName: 'ID',
 		name: 'id',

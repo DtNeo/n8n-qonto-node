@@ -46,6 +46,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Client ID',
         name: 'clientId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'getclients',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the client whose details are to be fetched.',
@@ -58,6 +68,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'getListClients',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization whose clients are to be fetched.',
@@ -66,6 +86,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Status',
         name: 'status',
         type: 'options',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'getListClients',
+						],
+					},
+				},
         options: [
             { name: 'All', value: 'all' },
             { name: 'Active', value: 'active' },
@@ -79,6 +109,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Start Date',
         name: 'startDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'getListClients',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Fetch clients created after this date.',
@@ -87,6 +127,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'End Date',
         name: 'endDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'getListClients',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Fetch clients created before this date.',
@@ -99,6 +149,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'createClient',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization for which the client will be created.',
@@ -107,6 +167,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Client Name',
         name: 'clientName',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'createClient',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The name of the client to be created.',
@@ -115,6 +185,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Email',
         name: 'email',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'createClient',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The email address of the client.',
@@ -123,6 +203,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Phone Number',
         name: 'phoneNumber',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'createClient',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'The phone number of the client.',
@@ -131,6 +221,16 @@ export const clientsOperations: INodeProperties[] = [
         displayName: 'Address',
         name: 'address',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'clients',
+						],
+						operation: [
+							'createClient',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'The address of the client.',

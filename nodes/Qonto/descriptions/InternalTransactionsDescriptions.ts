@@ -7,7 +7,6 @@ export const internalTransactionsOperations: INodeProperties[] = [
 // ------------------------
 //      INTERNAL TRANSFERS
 // ------------------------
-
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -29,10 +28,10 @@ export const internalTransactionsOperations: INodeProperties[] = [
 		],
 		default: 'createInternalTransfer',
 	},
+
 // ------------------------
 //      INTERNAL TRANSFERS - Create internal transfer
 // ------------------------
-
 	{
 		displayName: 'Idempotency Key',
 		name: 'idempotency_key',

@@ -7,7 +7,6 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 // ------------------------
 //      ATTACHMENTS IN TRANSACTIONS
 // ------------------------
-
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -44,10 +43,10 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		],
 		default: 'uploadAttachmentToATransaction',
 	},
+
 // ------------------------
 //      ATTACHMENTS IN TRANSACTIONS - Upload attachment to a transaction
 // ------------------------
-
 	{
 		displayName: 'ID',
 		name: 'id',
@@ -71,7 +70,7 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		displayName: 'Attachments Binary',
 		name: 'attachment_ids',
 		type: 'string',
-		required: true,	
+		required: true,
 		displayOptions: {
 			show: {
 				resource: [
@@ -85,7 +84,7 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		default: '',
 		description: 'Object property name which holds binary data',
 	},
-	
+
 // ------------------------
 //      ATTACHMENTS IN TRANSACTIONS - List attachments in a transaction
 // ------------------------
@@ -108,6 +107,7 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		default: '',
 		description: 'Retrieve the list of attachments within a transaction',
 	},
+
 // ------------------------
 //      ATTACHMENTS IN TRANSACTIONS - Remove all attachments from a transaction
 // ------------------------
@@ -130,6 +130,7 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 		default: '',
 		description: 'Remove all attachments from a transaction',
 	},
+
 // ------------------------
 //      ATTACHMENTS IN TRANSACTIONS - Remove an attachment from a transaction
 // ------------------------

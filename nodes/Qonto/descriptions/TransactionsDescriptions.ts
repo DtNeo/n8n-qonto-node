@@ -7,7 +7,6 @@ export const transactionsOperations: INodeProperties[] = [
 // ------------------------
 //      TRANSACTIONS
 // ------------------------
-
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -34,10 +33,10 @@ export const transactionsOperations: INodeProperties[] = [
 		],
 		default: 'listTransactions',
 	},
+
 // ------------------------
 //      TRANSACTIONS - List transactions
 // ------------------------
-
 	{
 		displayName: 'Return All',
 		name: 'returnAll',

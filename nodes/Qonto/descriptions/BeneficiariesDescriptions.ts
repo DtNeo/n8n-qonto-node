@@ -33,11 +33,6 @@ export const beneficiariesOperations: INodeProperties[] = [
 				action: 'Show beneficiary a beneficiaries',
 			},
 			{
-				name: 'Trust a List of Beneficiaries',
-				value: 'trustBeneficiaries',
-				action: 'Trust a list of beneficiaries a beneficiaries',
-			},
-			{
 				name: 'Untrust a List of Beneficiaries',
 				value: 'untrustBeneficiaries',
 				description: 'Get the list',
@@ -46,6 +41,7 @@ export const beneficiariesOperations: INodeProperties[] = [
 		],
 		default: 'listBeneficiaries',
 	},
+
 // ------------------------
 //      BENEFICIAIRIES - List beneficiaries
 // ------------------------
@@ -129,7 +125,7 @@ export const beneficiariesOperations: INodeProperties[] = [
 			type: 'string',
 			placeholder: 'settled',
 			default: '',
-			description: 'Allowed values: pending, processing, canceled, declined, settled (no combinaison possible yet)',
+			description: 'Beneficiaries can be filtered by status. The status query parameter accepts an array of statuses as value. The possible values are: pending, validated and declined.',
 		},
 		{
 			displayName: 'Updated_at_from',
@@ -147,7 +143,6 @@ export const beneficiariesOperations: INodeProperties[] = [
 		},
 	],
 	},
-
 
 // ------------------------
 //      BENEFICIAIRIES - Show beneficiary
@@ -171,28 +166,7 @@ export const beneficiariesOperations: INodeProperties[] = [
 		default: '',
 		description: 'Get a single beneficiary',
 	},
-// ------------------------
-//      BENEFICIAIRIES - Trust a list of beneficiaries
-// ------------------------
-	{
-		displayName: 'IDs',
-		name: 'ids',
-		type: 'string',
-		required: true,
-		displayOptions: {
-			show: {
-				resource: [
-					'beneficiaries',
-				],
-				operation: [
-					'trustBeneficiaries',
-				],
-			},
-		},
-		placeholder: 'ce91bc4e-68d6-4ab0-bfab-4a9403f7f316',
-		default: '',
-		description: '"abc", "xyz"',
-	},
+
 // ------------------------
 //      BENEFICIAIRIES - Untrust a list of beneficiaries
 // ------------------------

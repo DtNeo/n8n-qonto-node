@@ -1,6 +1,6 @@
 {
 	"node": "n8n-nodes-base.qonto",
-	"nodeVersion": "1.2",
+	"nodeVersion": "2",
 	"codexVersion": "1.0",
 	"categories": [
 		"Finance & Accounting"

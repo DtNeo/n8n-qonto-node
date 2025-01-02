@@ -37,7 +37,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 				},
 				{
 					name: 'Upload a PDF document for a specific insurance contract',
-					value: 'showTransaction',
+					value: 'uploadTransaction',
 					action: 'Upload a PDF document for a specific insurance contract',
 				},
 				{
@@ -55,6 +55,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization creating the insurance contract.',
@@ -63,6 +73,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Contract Name',
         name: 'contractName',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The name of the insurance contract.',
@@ -71,6 +91,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Start Date',
         name: 'startDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The start date of the insurance contract.',
@@ -79,6 +109,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'End Date',
         name: 'endDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'The end date of the insurance contract.',
@@ -87,6 +127,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Coverage Details',
         name: 'coverageDetails',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Details about the coverage provided by the insurance contract.',
@@ -98,6 +148,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Contract ID',
         name: 'contractId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'getInsuranceContract',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the insurance contract to be fetched.',
@@ -109,6 +169,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Contract ID',
         name: 'contractId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the insurance contract to be updated.',
@@ -117,6 +187,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Contract Name',
         name: 'contractName',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'The updated name of the insurance contract.',
@@ -125,6 +205,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'End Date',
         name: 'endDate',
         type: 'dateTime',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'The updated end date of the insurance contract.',
@@ -133,6 +223,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Coverage Details',
         name: 'coverageDetails',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'listTransactions',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'Updated details about the coverage provided by the insurance contract.',
@@ -144,6 +244,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'Contract ID',
         name: 'contractId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'uploadTransaction',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the insurance contract to which the PDF will be uploaded.',
@@ -152,6 +262,16 @@ export const insuranceContractsOperations: INodeProperties[] = [
         displayName: 'PDF File',
         name: 'pdfFile',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'insuranceContracts',
+						],
+						operation: [
+							'uploadTransaction',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'Path to the PDF file to be uploaded.',

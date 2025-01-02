@@ -41,6 +41,16 @@ export const teamsOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'teams',
+						],
+						operation: [
+							'listTeams',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization whose teams are to be listed.',
@@ -54,6 +64,16 @@ export const teamsOperations: INodeProperties[] = [
         displayName: 'Organization ID',
         name: 'organizationId',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'teams',
+						],
+						operation: [
+							'createTeam',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The unique identifier of the organization where the new team will be created.',
@@ -62,6 +82,16 @@ export const teamsOperations: INodeProperties[] = [
         displayName: 'Team Name',
         name: 'teamName',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'teams',
+						],
+						operation: [
+							'createTeam',
+						],
+					},
+				},
         default: '',
         required: true,
         description: 'The name of the new team.',
@@ -70,6 +100,16 @@ export const teamsOperations: INodeProperties[] = [
         displayName: 'Team Description',
         name: 'teamDescription',
         type: 'string',
+				displayOptions: {
+					show: {
+						resource: [
+							'teams',
+						],
+						operation: [
+							'createTeam',
+						],
+					},
+				},
         default: '',
         required: false,
         description: 'A description of the new team.',
