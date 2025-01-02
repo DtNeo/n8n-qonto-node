@@ -23,12 +23,12 @@ import { INodeProperties } from 'n8n-workflow';
 				},
 				options: [
 					{
-						name: 'Get a list of credit notes for an organization',
+						name: 'Get a List of Credit Notes for an Organization',
 						value: 'getListCreditNotes',
 						action: 'Get a list of credit notes for an organization',
 					},
 					{
-						name: 'Get details of credit note for an organization',
+						name: 'Get Details of Credit Note for an Organization',
 						value: 'getDetailsCreditNotes',
 						action: 'Get details of credit note for an organization',
 					},
@@ -55,7 +55,7 @@ import { INodeProperties } from 'n8n-workflow';
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization whose credit notes are to be fetched.',
+        description: 'The unique identifier of the organization whose credit notes are to be fetched',
     },
     {
         displayName: 'Status',
@@ -77,8 +77,7 @@ import { INodeProperties } from 'n8n-workflow';
             { name: 'Used', value: 'used' },
         ],
         default: 'all',
-        required: false,
-        description: 'Filter credit notes by their status.',
+        description: 'Filter credit notes by their status',
     },
     {
         displayName: 'Start Date',
@@ -95,8 +94,7 @@ import { INodeProperties } from 'n8n-workflow';
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch credit notes created after this date.',
+        description: 'Fetch credit notes created after this date',
     },
     {
         displayName: 'End Date',
@@ -113,8 +111,7 @@ import { INodeProperties } from 'n8n-workflow';
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch credit notes created before this date.',
+        description: 'Fetch credit notes created before this date',
     },
 
 		// ------------------------
@@ -137,7 +134,7 @@ import { INodeProperties } from 'n8n-workflow';
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization whose credit note details are to be fetched.',
+        description: 'The unique identifier of the organization whose credit note details are to be fetched',
     },
     {
         displayName: 'Credit Note ID',
@@ -155,6 +152,6 @@ import { INodeProperties } from 'n8n-workflow';
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the credit note.',
+        description: 'The unique identifier of the credit note',
     },
 ];

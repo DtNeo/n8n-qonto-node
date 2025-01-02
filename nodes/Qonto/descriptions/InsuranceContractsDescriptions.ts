@@ -21,27 +21,22 @@ export const insuranceContractsOperations: INodeProperties[] = [
 			},
 			options: [
 				{
-					name: 'Create a new insurance contract',
+					name: 'Create a New Insurance Contract',
 					value: 'listTransactions',
 					action: 'Create a new insurance contract',
 				},
 				{
-					name: 'Get insurance contract',
+					name: 'Get Insurance Contract',
 					value: 'getInsuranceContract',
 					action: 'Get insurance contract',
 				},
 				{
-					name: 'Update an insurance contract',
-					value: 'listTransactions',
-					action: 'Update an insurance contract',
-				},
-				{
-					name: 'Upload a PDF document for a specific insurance contract',
+					name: 'Upload a PDF Document for a Specific Insurance Contract',
 					value: 'uploadTransaction',
 					action: 'Upload a PDF document for a specific insurance contract',
 				},
 				{
-					name: 'Delete uploaded document',
+					name: 'Delete Uploaded Document',
 					value: 'deleteUploaded',
 					action: 'Delete uploaded document',
 				},
@@ -67,7 +62,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization creating the insurance contract.',
+        description: 'The unique identifier of the organization creating the insurance contract',
     },
     {
         displayName: 'Contract Name',
@@ -85,7 +80,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The name of the insurance contract.',
+        description: 'The name of the insurance contract',
     },
     {
         displayName: 'Start Date',
@@ -103,7 +98,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The start date of the insurance contract.',
+        description: 'The start date of the insurance contract',
     },
     {
         displayName: 'End Date',
@@ -120,8 +115,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'The end date of the insurance contract.',
+        description: 'The end date of the insurance contract',
     },
     {
         displayName: 'Coverage Details',
@@ -138,8 +132,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Details about the coverage provided by the insurance contract.',
+        description: 'Details about the coverage provided by the insurance contract',
     },
 	// ------------------------
 	//      insuranceContracts - Get insurance contract
@@ -160,7 +153,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the insurance contract to be fetched.',
+        description: 'The unique identifier of the insurance contract to be fetched',
     },
 	// ------------------------
 	//      insuranceContracts - Update an insurance contract
@@ -181,7 +174,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the insurance contract to be updated.',
+        description: 'The unique identifier of the insurance contract to be updated',
     },
     {
         displayName: 'Contract Name',
@@ -198,8 +191,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'The updated name of the insurance contract.',
+        description: 'The updated name of the insurance contract',
     },
     {
         displayName: 'End Date',
@@ -216,8 +208,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'The updated end date of the insurance contract.',
+        description: 'The updated end date of the insurance contract',
     },
     {
         displayName: 'Coverage Details',
@@ -234,8 +225,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Updated details about the coverage provided by the insurance contract.',
+        description: 'Updated details about the coverage provided by the insurance contract',
     },
 	// ------------------------
 	//      insuranceContracts - Upload a PDF document for a specific insurance contract
@@ -256,7 +246,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the insurance contract to which the PDF will be uploaded.',
+        description: 'The unique identifier of the insurance contract to which the PDF will be uploaded',
     },
     {
         displayName: 'PDF File',
@@ -274,7 +264,7 @@ export const insuranceContractsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'Path to the PDF file to be uploaded.',
+        description: 'Path to the PDF file to be uploaded',
     },
 // ------------------------
 	//      insuranceContracts - Delete uploaded document

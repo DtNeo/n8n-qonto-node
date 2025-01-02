@@ -35,6 +35,9 @@ export class QontoApi implements ICredentialType {
 						displayName: 'secret key',
 						name: 'secretKey',
 						type: 'string',
+						typeOptions: {
+							password: true,
+						},
 						default: '',
 						placeholder: 'f8952b8244c0ce693c8f793a07e807f8',
 				},

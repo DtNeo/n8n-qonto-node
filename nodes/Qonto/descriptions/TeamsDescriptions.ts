@@ -22,12 +22,12 @@ export const teamsOperations: INodeProperties[] = [
 			},
 			options: [
 				{
-					name: 'List teams in an organization',
+					name: 'List Teams in an Organization',
 					value: 'listTeams',
 					action: 'List teams in an organization',
 				},
 				{
-					name: 'Create a new team',
+					name: 'Create a New Team',
 					value: 'createTeam',
 					action: 'Create a new team',
 				},
@@ -53,7 +53,7 @@ export const teamsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization whose teams are to be listed.',
+        description: 'The unique identifier of the organization whose teams are to be listed',
     },
 
 	// ------------------------
@@ -76,7 +76,7 @@ export const teamsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization where the new team will be created.',
+        description: 'The unique identifier of the organization where the new team will be created',
     },
     {
         displayName: 'Team Name',
@@ -94,7 +94,7 @@ export const teamsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The name of the new team.',
+        description: 'The name of the new team',
     },
     {
         displayName: 'Team Description',
@@ -111,7 +111,6 @@ export const teamsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'A description of the new team.',
+        description: 'A description of the new team',
     },
 ];

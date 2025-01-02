@@ -63,6 +63,7 @@ export class QontoOAuth2Api implements ICredentialType {
 			displayName: 'X-Qonto-Staging-Token',
 			name: 'XQontoStagingToken',
 			type: 'string',
+			typeOptions: { password: true },
 			required: false,
 			default: '',
 			description: 'For Machine-to-Machine access append the HTTP header below: X-Qonto-Staging-Token:',

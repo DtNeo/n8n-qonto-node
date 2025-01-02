@@ -26,12 +26,12 @@ export const membershipsOperations: INodeProperties[] = [
 				action: 'List memberships a memberships',
 			},
 			{
-				name: 'Get details of a single membership',
+				name: 'Get Details of a Single Membership',
 				value: 'getMemberships',
 				action: 'Get details of a single membership',
 			},
 			{
-				name: 'Create and invite a new membership',
+				name: 'Create and Invite a New Membership',
 				value: 'createMemberships',
 				action: 'Create and invite a new membership',
 			},
@@ -111,8 +111,9 @@ export const membershipsOperations: INodeProperties[] = [
 	displayName: 'Email',
 	name: 'email',
 	type: 'string',
+	placeholder: 'name@email.com',
 	default: '',
-	description: 'email of the person being invited to join the organization',
+	description: 'Email of the person being invited to join the organization',
 	displayOptions: {
 		show: {
 			resource: [
@@ -125,11 +126,11 @@ export const membershipsOperations: INodeProperties[] = [
 	},
 },
 {
-	displayName: 'first_name',
+	displayName: 'First_name',
 	name: 'first_name',
 	type: 'string',
 	default: '',
-	description: 'first name of the person being invited to join the organization',
+	description: 'First name of the person being invited to join the organization',
 	displayOptions: {
 		show: {
 			resource: [
@@ -142,11 +143,11 @@ export const membershipsOperations: INodeProperties[] = [
 	},
 },
 {
-	displayName: 'last_name',
+	displayName: 'Last_name',
 	name: 'last_name',
 	type: 'string',
 	default: '',
-	description: 'last name of the person being invited to join the organization',
+	description: 'Last name of the person being invited to join the organization',
 	displayOptions: {
 		show: {
 			resource: [
@@ -159,11 +160,11 @@ export const membershipsOperations: INodeProperties[] = [
 	},
 },
 {
-	displayName: 'role',
+	displayName: 'Role',
 	name: 'role',
 	type: 'string',
 	default: '',
-	description: 'role of the person being invited to join the organization',
+	description: 'Role of the person being invited to join the organization',
 	displayOptions: {
 		show: {
 			resource: [
@@ -176,11 +177,11 @@ export const membershipsOperations: INodeProperties[] = [
 	},
 },
 {
-	displayName: 'team_id',
+	displayName: 'Team_id',
 	name: 'team_id',
 	type: 'string',
 	default: '',
-	description: 'unique identifier of the team the new membership is being assigned',
+	description: 'Unique identifier of the team the new membership is being assigned',
 	displayOptions: {
 		show: {
 			resource: [

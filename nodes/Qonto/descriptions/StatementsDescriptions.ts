@@ -22,17 +22,17 @@ export const statementsOperations: INodeProperties[] = [
 			},
 			options: [
 				{
-					name: 'Show statement',
+					name: 'Show Statement',
 					value: 'showStatement',
 					action: 'Show statement',
 				},
 				{
-					name: 'List statements',
+					name: 'List Statements',
 					value: 'listStatement',
 					action: 'List statements',
 				},
 			],
-			default: 'listTransactions',
+			default: 'showStatement',
 		},
 
 	// ------------------------
@@ -55,7 +55,7 @@ export const statementsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the statement to be fetched.',
+        description: 'The unique identifier of the statement to be fetched',
     },
 
 	// ------------------------
@@ -78,7 +78,7 @@ export const statementsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization whose statements are to be listed.',
+        description: 'The unique identifier of the organization whose statements are to be listed',
     },
     {
         displayName: 'Start Date',
@@ -95,8 +95,7 @@ export const statementsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch statements created after this date.',
+        description: 'Fetch statements created after this date',
     },
     {
         displayName: 'End Date',
@@ -113,7 +112,6 @@ export const statementsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch statements created before this date.',
+        description: 'Fetch statements created before this date',
     },
 ];

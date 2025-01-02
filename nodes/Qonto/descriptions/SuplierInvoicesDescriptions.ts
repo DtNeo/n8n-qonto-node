@@ -23,12 +23,12 @@ export const suplierInvoicesOperations: INodeProperties[] = [
 	},
 	options: [
 		{
-			name: 'Get a list of supplier invoices for an organization',
+			name: 'Get a List of Supplier Invoices for an Organization',
 			value: 'getSupplierInvoices',
 			action: 'Get a list of supplier invoices for an organization',
 		},
 		{
-			name: 'Create supplier invoices with attachments',
+			name: 'Create Supplier Invoices with Attachments',
 			value: 'createSupplierInvoices',
 			action: 'Create supplier invoices with attachments',
 		},
@@ -56,7 +56,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization whose supplier invoices are to be fetched.',
+        description: 'The unique identifier of the organization whose supplier invoices are to be fetched',
     },
     {
         displayName: 'Status',
@@ -78,8 +78,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
             { name: 'Paid', value: 'paid' },
         ],
         default: 'all',
-        required: false,
-        description: 'Filter supplier invoices by their payment status.',
+        description: 'Filter supplier invoices by their payment status',
     },
     {
         displayName: 'Start Date',
@@ -96,8 +95,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch invoices created after this date.',
+        description: 'Fetch invoices created after this date',
     },
     {
         displayName: 'End Date',
@@ -114,8 +112,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch invoices created before this date.',
+        description: 'Fetch invoices created before this date',
     },
 
 // ------------------------
@@ -138,7 +135,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization for which supplier invoices will be created.',
+        description: 'The unique identifier of the organization for which supplier invoices will be created',
     },
     {
         displayName: 'Supplier Invoices',
@@ -159,7 +156,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
         },
         default: {},
         required: true,
-        description: 'Details of the supplier invoices to be created.',
+        description: 'Details of the supplier invoices to be created',
         options: [
             {
                 displayName: 'Invoice',
@@ -171,7 +168,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
                         type: 'string',
                         default: '',
                         required: true,
-                        description: 'Unique number of the supplier invoice.',
+                        description: 'Unique number of the supplier invoice',
                     },
                     {
                         displayName: 'Invoice Date',
@@ -179,7 +176,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
                         type: 'dateTime',
                         default: '',
                         required: true,
-                        description: 'Date of the supplier invoice.',
+                        description: 'Date of the supplier invoice',
                     },
                     {
                         displayName: 'Amount',
@@ -187,7 +184,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
                         type: 'number',
                         default: '',
                         required: true,
-                        description: 'Amount of the supplier invoice.',
+                        description: 'Amount of the supplier invoice',
                     },
                     {
                         displayName: 'Currency',
@@ -195,7 +192,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
                         type: 'string',
                         default: 'EUR',
                         required: true,
-                        description: 'Currency of the supplier invoice.',
+                        description: 'Currency of the supplier invoice',
                     },
                     {
                         displayName: 'Attachment IDs',
@@ -203,7 +200,7 @@ export const suplierInvoicesOperations: INodeProperties[] = [
                         type: 'string',
                         default: '',
                         required: true,
-                        description: 'Comma-separated IDs of the attachments associated with the invoice.',
+                        description: 'Comma-separated IDs of the attachments associated with the invoice',
                     },
                 ],
             },

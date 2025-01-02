@@ -22,17 +22,17 @@ export const cardsOperations: INodeProperties[] = [
 			},
 			options: [
 				{
-					name: 'List cards',
+					name: 'List Cards',
 					value: 'listCards',
 					action: 'List cards',
 				},
 				{
-					name: 'Create a new Virtual (virtual, flash, advertising) card',
+					name: 'Create a New Virtual (Virtual, Flash, Advertising) Card',
 					value: 'createNew',
-					action: 'Create a new Virtual (virtual, flash, advertising) card',
+					action: 'Create a new virtual virtual flash advertising card',
 				},
 				{
-					name: 'Retrieve card data view URL',
+					name: 'Retrieve Card Data View URL',
 					value: 'retieveCard',
 					action: 'Retrieve card data view URL',
 				},
@@ -60,7 +60,7 @@ export const cardsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization whose cards are to be listed.',
+        description: 'The unique identifier of the organization whose cards are to be listed',
     },
     {
         displayName: 'Status',
@@ -82,8 +82,7 @@ export const cardsOperations: INodeProperties[] = [
             { name: 'Inactive', value: 'inactive' },
         ],
         default: 'all',
-        required: false,
-        description: 'Filter cards by their status.',
+        description: 'Filter cards by their status',
     },
 
   // ------------------------
@@ -106,7 +105,7 @@ export const cardsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization for which the virtual card will be created.',
+        description: 'The unique identifier of the organization for which the virtual card will be created',
     },
     {
         displayName: 'Card Type',
@@ -129,7 +128,7 @@ export const cardsOperations: INodeProperties[] = [
         ],
         default: 'virtual',
         required: true,
-        description: 'The type of virtual card to create.',
+        description: 'The type of virtual card to create',
     },
     {
         displayName: 'Card Name',
@@ -147,7 +146,7 @@ export const cardsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The name of the virtual card.',
+        description: 'The name of the virtual card',
     },
     {
         displayName: 'Spending Limit',
@@ -164,8 +163,7 @@ export const cardsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'The spending limit for the virtual card.',
+        description: 'The spending limit for the virtual card',
     },
     {
         displayName: 'Currency',
@@ -183,7 +181,7 @@ export const cardsOperations: INodeProperties[] = [
 				},
         default: 'EUR',
         required: true,
-        description: 'The currency of the virtual card.',
+        description: 'The currency of the virtual card',
     },
 
   // ------------------------

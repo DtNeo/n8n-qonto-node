@@ -22,17 +22,17 @@ export const clientsOperations: INodeProperties[] = [
 			},
 			options: [
 				{
-					name: 'Get clients details',
+					name: 'Get Clients Details',
 					value: 'getclients',
 					action: 'Get clients details',
 				},
 				{
-					name: 'Get a list of clients',
+					name: 'Get a List of Clients',
 					value: 'getListClients',
-					action: 'SGet a list of clientsow',
+					action: 'Get a list of client',
 				},
 				{
-					name: 'Create a client',
+					name: 'Create a Client',
 					value: 'createClient',
 					action: 'Create a client',
 				},
@@ -58,7 +58,7 @@ export const clientsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the client whose details are to be fetched.',
+        description: 'The unique identifier of the client whose details are to be fetched',
     },
 	// ------------------------
 	//      clients - Get a list of clients
@@ -80,7 +80,7 @@ export const clientsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization whose clients are to be fetched.',
+        description: 'The unique identifier of the organization whose clients are to be fetched',
     },
     {
         displayName: 'Status',
@@ -102,8 +102,7 @@ export const clientsOperations: INodeProperties[] = [
             { name: 'Inactive', value: 'inactive' },
         ],
         default: 'all',
-        required: false,
-        description: 'Filter clients by their status.',
+        description: 'Filter clients by their status',
     },
     {
         displayName: 'Start Date',
@@ -120,8 +119,7 @@ export const clientsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch clients created after this date.',
+        description: 'Fetch clients created after this date',
     },
     {
         displayName: 'End Date',
@@ -138,8 +136,7 @@ export const clientsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch clients created before this date.',
+        description: 'Fetch clients created before this date',
     },
 
 	// ------------------------
@@ -161,7 +158,7 @@ export const clientsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization for which the client will be created.',
+        description: 'The unique identifier of the organization for which the client will be created',
     },
     {
         displayName: 'Client Name',
@@ -179,12 +176,13 @@ export const clientsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The name of the client to be created.',
+        description: 'The name of the client to be created',
     },
     {
         displayName: 'Email',
         name: 'email',
         type: 'string',
+								placeholder: 'name@email.com',
 				displayOptions: {
 					show: {
 						resource: [
@@ -197,7 +195,7 @@ export const clientsOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The email address of the client.',
+        description: 'The email address of the client',
     },
     {
         displayName: 'Phone Number',
@@ -214,8 +212,7 @@ export const clientsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'The phone number of the client.',
+        description: 'The phone number of the client',
     },
     {
         displayName: 'Address',
@@ -232,7 +229,6 @@ export const clientsOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'The address of the client.',
+        description: 'The address of the client',
     },
 ];

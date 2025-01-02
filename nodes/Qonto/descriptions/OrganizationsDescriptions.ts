@@ -33,7 +33,7 @@ export const organizationsOperations: INodeProperties[] = [
 //      ORGANIZATIONS - Get organization and its bank_accounts
 // ------------------------
 	{
-		displayName: 'include_external_accounts',
+		displayName: 'Include_external_accounts',
 		name: 'include_external_accounts',
 		type: 'boolean',
 		required: true,
@@ -47,7 +47,7 @@ export const organizationsOperations: INodeProperties[] = [
 				],
 			},
 		},
-		default: 'false',
+		default: false,
 		description: 'By default includes only Qonto accounts. Set to \'true\' if you also want to include your connected externals account(s).',
 	},
 ];

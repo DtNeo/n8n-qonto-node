@@ -23,17 +23,17 @@ export const clientsInvoicesOperations: INodeProperties[] = [
 	},
 	options: [
 		{
-			name: 'List client invoices',
+			name: 'List Client Invoices',
 			value: 'listInvoices',
 			action: 'List client invoices',
 		},
 		{
-			name: 'Create a client invoice',
+			name: 'Create a Client Invoice',
 			value: 'createClientInvoice',
 			action: 'Create a client invoice',
 		},
 		{
-			name: 'Show client invoice',
+			name: 'Show Client Invoice',
 			value: 'showClientInvoice',
 			action: 'Show client invoice',
 		},
@@ -59,7 +59,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization whose client invoices are to be fetched.',
+        description: 'The unique identifier of the organization whose client invoices are to be fetched',
     },
     {
         displayName: 'Status',
@@ -81,8 +81,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
             { name: 'Paid', value: 'paid' },
         ],
         default: 'all',
-        required: false,
-        description: 'Filter client invoices by their payment status.',
+        description: 'Filter client invoices by their payment status',
     },
     {
         displayName: 'Start Date',
@@ -99,8 +98,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch invoices created after this date.',
+        description: 'Fetch invoices created after this date',
     },
     {
         displayName: 'End Date',
@@ -117,8 +115,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
 					},
 				},
         default: '',
-        required: false,
-        description: 'Fetch invoices created before this date.',
+        description: 'Fetch invoices created before this date',
     },
 
 // ------------------------
@@ -141,7 +138,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
 				},
         default: '',
         required: true,
-        description: 'The unique identifier of the organization for which the client invoice will be created.',
+        description: 'The unique identifier of the organization for which the client invoice will be created',
     },
     {
         displayName: 'Client Invoice',
@@ -162,7 +159,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
         },
         default: {},
         required: true,
-        description: 'Details of the client invoice to be created.',
+        description: 'Details of the client invoice to be created',
         options: [
             {
                 displayName: 'Invoice Details',
@@ -174,7 +171,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
                         type: 'string',
                         default: '',
                         required: true,
-                        description: 'Unique number of the client invoice.',
+                        description: 'Unique number of the client invoice',
                     },
                     {
                         displayName: 'Invoice Date',
@@ -182,7 +179,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
                         type: 'dateTime',
                         default: '',
                         required: true,
-                        description: 'Date of the client invoice.',
+                        description: 'Date of the client invoice',
                     },
                     {
                         displayName: 'Due Date',
@@ -190,7 +187,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
                         type: 'dateTime',
                         default: '',
                         required: true,
-                        description: 'Due date for the client invoice payment.',
+                        description: 'Due date for the client invoice payment',
                     },
                     {
                         displayName: 'Amount',
@@ -198,7 +195,7 @@ export const clientsInvoicesOperations: INodeProperties[] = [
                         type: 'number',
                         default: '',
                         required: true,
-                        description: 'Amount of the client invoice.',
+                        description: 'Amount of the client invoice',
                     },
                     {
                         displayName: 'Currency',
@@ -206,15 +203,14 @@ export const clientsInvoicesOperations: INodeProperties[] = [
                         type: 'string',
                         default: 'EUR',
                         required: true,
-                        description: 'Currency of the client invoice.',
+                        description: 'Currency of the client invoice',
                     },
                     {
                         displayName: 'Description',
                         name: 'description',
                         type: 'string',
                         default: '',
-                        required: false,
-                        description: 'Description or details of the client invoice.',
+                        description: 'Description or details of the client invoice',
                     },
                 ],
             },
