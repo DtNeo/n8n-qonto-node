@@ -624,7 +624,7 @@ if (resource === 'attachmentsInATransaction') {
 	// GET /transactions/{transaction_id}/attachments
 	// ------------------------------------------
 	if (operation === 'listAttachmentsInATransaction') {
-		const transactionId = this.getNodeParameter('transaction_id', i) as string;
+		const transactionId = this.getNodeParameter('id', i) as string;
 		const endpoint = `transactions/${transactionId}/attachments`;
 
 		responseData = await qontoApiRequest.call(this, headers, 'GET', endpoint, {}, {});
@@ -635,7 +635,7 @@ if (resource === 'attachmentsInATransaction') {
 	// DELETE /transactions/{transaction_id}/attachments
 	// ------------------------------------------
 	if (operation === 'removeAllAttachmentsFromATransaction') {
-		const transactionId = this.getNodeParameter('transaction_id', i) as string;
+		const transactionId = this.getNodeParameter('id', i) as string;
 		const endpoint = `transactions/${transactionId}/attachments`;
 
 		responseData = await qontoApiRequest.call(this, headers, 'DELETE', endpoint, {}, {});
