@@ -89,8 +89,8 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 //      ATTACHMENTS IN TRANSACTIONS - List attachments in a transaction
 // ------------------------
 	{
-		displayName: 'Transaction ID',
-		name: 'transaction_id',
+		displayName: 'ID',
+		name: 'id',
 		type: 'string',
 		required: true,
 		displayOptions: {
@@ -112,8 +112,8 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 //      ATTACHMENTS IN TRANSACTIONS - Remove all attachments from a transaction
 // ------------------------
 	{
-		displayName: 'Transaction ID',
-		name: 'transaction_id',
+		displayName: 'ID',
+		name: 'id',
 		type: 'string',
 		required: true,
 		displayOptions: {
