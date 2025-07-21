@@ -78,6 +78,54 @@ export const transactionsOperations: INodeProperties[] = [
 		description: 'Max number of results to return',
 	},
 	{
+		displayName: 'Account type',
+		name: 'account_type',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: {
+			show: {
+				resource: [
+					'transactions',
+				],
+			},
+		},
+		options: [
+			{
+				name: 'Bank account',
+				value: 'bank_account_id',
+				action: 'List transactions a transactions',
+			},
+			{
+				name: 'Iban',
+				value: 'iban',
+				action: 'Show transaction a transactions',
+			},
+		],
+		default: 'iban',
+	},
+	{
+		displayName: 'Bank account',
+		name: 'bank_account_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: [
+					'transactions',
+				],
+				operation: [
+					'listTransactions',
+				],
+				account_type: [
+					'bank_account_id',
+				],
+			},
+		},
+		placeholder: '018f71db-c635-78b5-b90a-ea05de98c2bf',
+		default: '',
+		description: 'Retrieve all transactions within a particular bank account',
+	},
+	{
 		displayName: 'Iban',
 		name: 'iban',
 		type: 'string',
@@ -90,11 +138,14 @@ export const transactionsOperations: INodeProperties[] = [
 				operation: [
 					'listTransactions',
 				],
+				account_type: [
+					'iban',
+				],
 			},
 		},
 		placeholder: 'FR7616798000010000005663951',
 		default: '',
-		description: 'Retrieve all transactions within a particular bank account',
+		description: 'Retrieve all transactions within a particular Iban',
 	},
 	{
 		displayName: 'Filters',
