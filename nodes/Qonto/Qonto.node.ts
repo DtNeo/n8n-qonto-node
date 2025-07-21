@@ -36,7 +36,7 @@ import {
   cardsOperations,
 } from './descriptions';
 
-import { v4 as uuid } from 'uuid';
+import { randomUUID as uuid } from 'crypto';
 
 export class Qonto implements INodeType {
 	description: INodeTypeDescription = {
@@ -592,7 +592,6 @@ if (resource === 'attachmentsInATransaction') {
 	// ------------------------------------------
 	if (operation === 'uploadAttachmentToATransaction') {
 		const transactionId = this.getNodeParameter('transaction_id', i) as string;
-
 		const endpoint = `transactions/${transactionId}/attachments`;
 
 		const idempotencyKey = uuid();
@@ -602,21 +601,35 @@ if (resource === 'attachmentsInATransaction') {
 		};
 
 		const binaryPropertyName = this.getNodeParameter('binaryPropertyName', i) as string;
+		const binaryData = this.helpers.assertBinaryData(i, binaryPropertyName);
 		const fileBuffer = await this.helpers.getBinaryDataBuffer(i, binaryPropertyName);
-		const base64File = fileBuffer.toString('base64');
 
-		const body: IDataObject = {
-			file: base64File,
-		};
+		// Use multipart/form-data as required by Qonto API
+		const form = new FormData();
+		const blob = new Blob([fileBuffer], { 
+			type: binaryData.mimeType || 'application/octet-stream' 
+		});
+		form.append('file', blob, binaryData.fileName || 'attachment');
 
 		responseData = await qontoApiRequest.call(
 			this,
 			headers,
 			'POST',
 			endpoint,
-			body,
-			{}
+			form as any,
+			{},
+			true
 		);
+		
+		// Qonto API returns empty response for successful uploads, provide meaningful data
+		if (!responseData || (typeof responseData === 'object' && Object.keys(responseData).length === 0)) {
+			responseData = { 
+				success: true, 
+				message: 'Attachment uploaded successfully to transaction',
+				transaction_id: transactionId,
+				uploaded_at: new Date().toISOString()
+			};
+		}
 	}
 
 	// ------------------------------------------

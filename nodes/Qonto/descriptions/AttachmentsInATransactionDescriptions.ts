@@ -48,8 +48,8 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 //      ATTACHMENTS IN TRANSACTIONS - Upload attachment to a transaction
 // ------------------------
 	{
-		displayName: 'ID',
-		name: 'id',
+		displayName: 'Transaction ID',
+		name: 'transaction_id',
 		type: 'string',
 		required: true,
 		displayOptions: {
@@ -68,7 +68,7 @@ export const attachmentsInATransactionOperations: INodeProperties[] = [
 	},
 	{
 		displayName: 'Attachments Binary',
-		name: 'attachment_ids',
+		name: 'binaryPropertyName',
 		type: 'string',
 		required: true,
 		displayOptions: {

@@ -26,6 +26,7 @@ export async function qontoApiRequest(
 	endpoint: string,
 	body: IDataObject = {},
 	query: IDataObject = {},
+	isFileUpload: boolean = false,
 ): Promise<any> {
 	const authenticationMethod = this.getNodeParameter('authentication', 0) as string;
 	const credentials = await this.getCredentials(authenticationMethod === 'logKey' ? 'qontoApi' : 'qontoOAuth2Api');
@@ -49,17 +50,25 @@ export async function qontoApiRequest(
 		body,
 		headers: {
 			...headers,
-			'Content-Type': 'application/json',
 		},
-		json: true,
 	};
+
+	// Set content type based on upload type  
+	if (isFileUpload) {
+		// For file uploads, don't set Content-Type, let the request library handle it
+		// and keep the body as formData structure
+	} else {
+		options.headers!['Content-Type'] = 'application/json';
+		options.json = true;
+	}
+
 
 	// Handle authentication
 	if (authenticationMethod === 'logKey') {
 		options.headers!.Authorization = `${credentials.login}:${credentials.secretKey}`;
-		return this.helpers.httpRequest!(options);
+		return await this.helpers.httpRequest!(options);
 	} else {
-		return this.helpers.httpRequestWithAuthentication!.call(this, 'qontoOAuth2Api', options);
+		return await this.helpers.httpRequestWithAuthentication!.call(this, 'qontoOAuth2Api', options);
 	}
 }
 
