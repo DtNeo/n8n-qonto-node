@@ -26,9 +26,9 @@ export const transactionsOperations: INodeProperties[] = [
 				action: 'List transactions a transactions',
 			},
 			{
-				name: 'Retrieve a transaction',
+				name: 'Retrieve a Transaction',
 				value: 'showTransaction',
-				action: 'Returns the transaction identified by the id path parameter.',
+				action: 'Returns the transaction identified by the id path parameter',
 			},
 		],
 		default: 'listTransactions',
