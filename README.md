@@ -1,5 +1,16 @@
 ## Realase version
 
+## What's New in Version 0.2.0
+
+This version brings several major improvements and new features, thanks to community contributions.
+
+*   **Filter Transactions by Bank Account ID**: In addition to filtering by IBAN, you can now use the internal `Bank Account ID` to list transactions, offering more flexibility.
+*   **Upload Attachments to Transactions**: You can now upload files (invoices, receipts) directly to a transaction using a binary file input in your workflow.
+*   **General Fixes & Improvements**:
+    *   Corrected several parameter names to align with the latest Qonto API documentation.
+    *   Project dependencies have been updated to ensure compatibility with recent versions of n8n.
+    *   Improved code quality by adopting stricter linting rules.
+    *   
 package.json
   "version": "0.1.2"
 Qonto.node.json
