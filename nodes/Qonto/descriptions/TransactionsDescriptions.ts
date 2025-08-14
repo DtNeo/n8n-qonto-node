@@ -26,9 +26,9 @@ export const transactionsOperations: INodeProperties[] = [
 				action: 'List transactions a transactions',
 			},
 			{
-				name: 'Show Transaction',
+				name: 'Retrieve a transaction',
 				value: 'showTransaction',
-				action: 'Show transaction a transactions',
+				action: 'Returns the transaction identified by the id path parameter.',
 			},
 		],
 		default: 'listTransactions',
@@ -78,74 +78,61 @@ export const transactionsOperations: INodeProperties[] = [
 		description: 'Max number of results to return',
 	},
 	{
-		displayName: 'Account type',
-		name: 'account_type',
-		type: 'options',
-		noDataExpression: true,
-		displayOptions: {
-			show: {
-				resource: [
-					'transactions',
-				],
-			},
-		},
-		options: [
-			{
-				name: 'Bank account',
-				value: 'bank_account_id',
-				action: 'List transactions a transactions',
-			},
-			{
-				name: 'Iban',
-				value: 'iban',
-				action: 'Show transaction a transactions',
-			},
-		],
-		default: 'iban',
+    displayName: 'Identifier Type',
+    name: 'identifierType',
+    type: 'options',
+    noDataExpression: true,
+    displayOptions: {
+        show: {
+            resource: ['transactions'],
+            operation: ['listTransactions'],
+        },
+    },
+    options: [
+        {
+            name: 'IBAN',
+            value: 'iban',
+            description: 'Use the IBAN to identify the account',
+        },
+        {
+            name: 'Bank Account ID',
+            value: 'bankAccountId',
+            description: 'Use the internal Qonto ID to identify the account',
+        },
+    ],
+    default: 'iban',
 	},
 	{
-		displayName: 'Bank account',
-		name: 'bank_account_id',
-		type: 'string',
-		required: true,
-		displayOptions: {
-			show: {
-				resource: [
-					'transactions',
-				],
-				operation: [
-					'listTransactions',
-				],
-				account_type: [
-					'bank_account_id',
-				],
-			},
-		},
-		placeholder: '018f71db-c635-78b5-b90a-ea05de98c2bf',
-		default: '',
-		description: 'Retrieve all transactions within a particular bank account',
+			displayName: 'IBAN',
+			name: 'iban',
+			type: 'string',
+			required: true,
+			displayOptions: {
+        show: {
+            resource: ['transactions'],
+            operation: ['listTransactions'],
+						identifierType: ['iban'],
+        },
+    },
+			placeholder: 'FR7616798000010000005663951',
+			default: '',
+			description: 'The IBAN of the account to retrieve transactions from',
 	},
 	{
-		displayName: 'Iban',
-		name: 'iban',
-		type: 'string',
-		required: true,
-		displayOptions: {
-			show: {
-				resource: [
-					'transactions',
-				],
-				operation: [
-					'listTransactions',
-				],
-				account_type: [
-					'iban',
-				],
-			},
-		},
-		placeholder: 'FR7616798000010000005663951',
-		default: '',
-		description: 'Retrieve all transactions within a particular Iban',
+			displayName: 'Bank Account ID',
+			name: 'bankAccountId',
+			type: 'string',
+			required: true,
+			displayOptions: {
+        show: {
+            resource: ['transactions'],
+            operation: ['listTransactions'],
+            identifierType: ['bankAccountId'],
+        },
+    },
+			placeholder: '018f71db-c635-78b5-b90a-ea05de98c2bf',
+			default: '',
+			description: 'The ID of the account to retrieve transactions from',
 	},
 	{
 		displayName: 'Filters',

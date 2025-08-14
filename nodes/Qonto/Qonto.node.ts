@@ -666,18 +666,14 @@ if (resource === 'transactions') {
 	// -----------------------------------------
 	if (operation === 'listTransactions') {
 		const endpoint = 'transactions';
-		const accountType = this.getNodeParameter('account_type', i) as string;
-		switch (accountType) {
-			case 'bank_account_id':
-				const bankAccountId = this.getNodeParameter('bank_account_id', i) as string;
-				query.bank_account_id = bankAccountId;
-				break;
-			case 'iban':
+		const identifierType = this.getNodeParameter('identifierType', i) as string;
+
+		if (identifierType === 'bankAccountId') {
+				const bankAccountId = this.getNodeParameter('bankAccountId', i) as string;
+				query.bank_account_id = bankAccountId; // Note : l'API attend bank_account_id (avec underscore)
+		} else { // 'iban' est le défaut
 				const iban = this.getNodeParameter('iban', i) as string;
 				query.iban = iban;
-				break;
-			default:
-				break;
 		}
 
 		const filters = this.getNodeParameter('filters', i) as IDataObject;
