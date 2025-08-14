@@ -48,6 +48,6 @@ export const organizationsOperations: INodeProperties[] = [
 			},
 		},
 		default: false,
-		description: 'By default includes only Qonto accounts. Set to \'true\' if you also want to include your connected externals account(s).',
+		description: 'Whether to include archived organizations or not',
 	},
 ];

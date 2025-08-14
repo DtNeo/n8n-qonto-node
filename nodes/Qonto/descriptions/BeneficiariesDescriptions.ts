@@ -112,20 +112,20 @@ export const beneficiariesOperations: INodeProperties[] = [
 			description: 'Beneficiaries can be filtered by IBAN. The iban query parameter accepts an array of IBANs as value.',
 		},
 		{
-			displayName: 'Trusted',
-			name: 'trusted',
-			type: 'string',
-			placeholder: '',
-			default: '',
-			description: 'Boolean property that can filter beneficiaries by true or false',
-		},
-		{
 			displayName: 'Status',
 			name: 'status',
 			type: 'string',
 			placeholder: 'settled',
 			default: '',
 			description: 'Beneficiaries can be filtered by status. The status query parameter accepts an array of statuses as value. The possible values are: pending, validated and declined.',
+		},
+		{
+			displayName: 'Trusted',
+			name: 'trusted',
+			type: 'string',
+			placeholder: '',
+			default: '',
+			description: 'Boolean property that can filter beneficiaries by true or false',
 		},
 		{
 			displayName: 'Updated_at_from',

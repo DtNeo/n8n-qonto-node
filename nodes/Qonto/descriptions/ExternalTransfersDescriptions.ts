@@ -129,6 +129,14 @@ export const externalTransfersOperations: INodeProperties[] = [
 	},
 	options: [
 		{
+			displayName: 'Beneficiary_ids',
+			name: 'beneficiary_ids',
+			type: 'string',
+			placeholder: '',
+			default: '',
+			description: 'Allows filtering on a list of beneficiary IDs',
+		},
+		{
 		displayName: 'Scheduled_date_from',
 		name: 'scheduled_date_from',
 		type: 'dateTime',
@@ -163,14 +171,6 @@ export const externalTransfersOperations: INodeProperties[] = [
 		type: 'dateTime',
 		placeholder: '2019-01-10T11:47:53.123Z',
 		default: '',
-	},
-	{
-		displayName: 'Beneficiary_ids',
-		name: 'beneficiary_ids',
-		type: 'string',
-		placeholder: '',
-		default: '',
-		description: 'Allows filtering on a list of beneficiary IDs',
 	},
 ],
 },
